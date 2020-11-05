@@ -1,0 +1,147 @@
+//Simple system - uses schedule transform to do complementary load behavior
+
+clock {
+	timezone EST+5EDT;
+	starttime '2001-01-01 0:00:00';
+	stoptime '2001-01-02 0:00:00';
+}
+
+module powerflow {
+	solver_method NR;
+}
+
+module tape;
+class player {
+    double value;
+}
+object overhead_line_conductor {
+	name olc100;
+	geometric_mean_radius 0.0244 ft;
+	resistance 0.306 Ohm/mile;
+}
+
+object overhead_line_conductor {
+	name olc101;
+	geometric_mean_radius 0.00814 ft;
+	resistance 0.592 Ohm/mile;
+}
+
+object line_spacing {
+	name ls200;
+	distance_AB 2.5 ft;
+	distance_BC 4.5 ft;
+	distance_AC 7.0 ft;
+	distance_AN 5.656854 ft; 
+	distance_BN 4.272002 ft;
+	distance_CN 5.0 ft;
+}
+
+object line_configuration {
+	name lc300;
+	conductor_A olc100;
+	conductor_B olc100;
+	conductor_C olc100;
+	conductor_N olc101;
+	spacing ls200;
+}
+object node {
+	name TopNode;
+    bustype SWING;
+	phases "ABCN";
+	nominal_voltage 7200.0;
+}
+
+object overhead_line {
+	phases "ABCN";
+	name OL_TN_SW1;
+	from TopNode;
+	to meter1;
+    length 200.0;
+    configuration lc300;
+}
+
+object meter {
+    phases "ABCN";
+    nominal_voltage 7200;
+    name meter1;
+}
+object switch {
+    phases "ABCN";
+    name sswitch1;
+    from meter1;
+    to Load_ON;
+    operating_mode BANKED;
+    status player_A.value;
+    switch_resistance 0.0001 Ohm;
+    object recorder {
+        property status;
+        interval 60;
+        file switchstatus.csv;
+        };
+
+    object player {
+        property status;
+        name player_A;
+        file switch1.player;
+        };
+    }
+
+object load {
+	phases "ABCN";
+	name Load_ON;
+	nominal_voltage 7200.0;
+	constant_power_A_real 1000.00;
+}
+
+object overhead_line {
+	phases "ABCN";
+	name OL_TN_SW2;
+	from TopNode;
+	to meter2;
+    length 200.0;
+    configuration lc300;
+}
+
+object meter {
+    phases ABCN;
+    nominal_voltage 7200;
+    name meter2;
+}
+
+object switch {
+    phases "ABCN";
+    name sswitch2;
+    from meter2;
+    to Load_OFF;
+    switch_resistance 0.0001 Ohm;
+    operating_mode BANKED;
+    status player_B.value;
+    object recorder{
+        property status;
+        interval 60;
+        file switch2status.csv;
+        };
+
+    object player {
+        property status;
+        name player_B;
+        file switch2.player;
+        };
+    }
+
+
+object load {
+	phases "ABCN";
+	name Load_OFF;
+	nominal_voltage 7200.0;
+	constant_power_A_real 1000.00;
+}
+
+object group_recorder {
+	name LoadRec;
+	group "class=load";
+	property measured_power;
+	complex_part REAL;
+	interval 60;
+	file LoadBehavior.csv;
+}

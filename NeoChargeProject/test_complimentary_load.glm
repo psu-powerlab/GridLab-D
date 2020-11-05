@@ -1,0 +1,98 @@
+//Simple system - uses schedule transform to do complementary load behavior
+
+clock {
+	timezone EST+5EDT;
+	starttime '2000-01-01 0:00:00';
+	stoptime '2000-01-01 0:20:00';
+}
+
+schedule simple_schedule {
+	0-4 * * * * 0
+	5-9 * * * * 1
+	10-14 * * * * 0
+	15-20 * * * * 1
+	21-59 * * * * 0
+}
+
+module powerflow {
+	solver_method FBS;
+}
+module tape;
+
+object overhead_line_conductor {
+	name olc100;
+	geometric_mean_radius 0.0244 ft;
+	resistance 0.306 Ohm/mile;
+}
+
+object overhead_line_conductor {
+	name olc101;
+	geometric_mean_radius 0.00814 ft;
+	resistance 0.592 Ohm/mile;
+}
+
+object line_spacing {
+	name ls200;
+	distance_AB 2.5 ft;
+	distance_BC 4.5 ft;
+	distance_AC 7.0 ft;
+	distance_AN 5.656854 ft; 
+	distance_BN 4.272002 ft;
+	distance_CN 5.0 ft;
+}
+
+object line_configuration {
+	name lc300;
+	conductor_A olc100;
+	conductor_B olc100;
+	conductor_C olc100;
+	conductor_N olc101;
+	spacing ls200;
+}
+
+object node {
+	name TopNode;
+	phases ABCN;
+	nominal_voltage 7200.0;
+}
+
+object load {
+	phases ABCN;
+	name OffOnLoad;
+	nominal_voltage 7200.0;
+	constant_power_A_real simple_schedule*500.0;
+}
+
+object load {
+	phases ABCN;
+	name OnOffLoad;
+	nominal_voltage 7200.0;
+	constant_power_A_real simple_schedule*-500.0+500.0;
+}
+
+object overhead_line {
+	phases ABCN;
+	name TopToOffOn;
+	from TopNode;
+	to OffOnLoad;
+	length 250.0 ft;
+	configuration lc300;
+}
+
+object overhead_line {
+	phases ABCN;
+	name TopToOnOff;
+	from TopNode;
+	to OnOffLoad;
+	length 250.0 ft;
+	configuration lc300;
+}
+
+object group_recorder {
+	name LoadRec;
+	group "class=load";
+	property constant_power_A;
+	complex_part REAL;
+	interval 60;
+	file LoadBehavior.csv;
+}

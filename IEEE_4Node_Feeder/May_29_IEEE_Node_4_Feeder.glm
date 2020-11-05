@@ -1,0 +1,240 @@
+// Exercise 4.1.1
+module powerflow {
+     solver_method NR;
+};
+module climate;
+module residential {
+	implicit_enduses NONE;
+};
+module tape;
+
+
+
+clock {
+	timestamp '2010-01-01 0:00:00';
+	stoptime '2010-12-31 23:50:00';
+	timezone PST+8PDT;
+}
+// IEEE 4 Node Feeder: Balanced step-down delta-delta
+
+class player {
+    double value;
+}
+
+object line_configuration {
+	name LC300;
+	conductor_A OH100;
+	conductor_B OH100;
+	conductor_C OH100;
+	conductor_N OH101;
+	spacing LS200;
+}
+
+object line_spacing {
+	name LS200;
+	distance_AB 2.5;
+	distance_BC 4.5;
+	distance_AC 7.0;
+	distance_AN 5.656854;
+	distance_BN 4.272002;
+	distance_CN 5.0;
+}
+
+
+object overhead_line_conductor {
+	name OH100;
+	geometric_mean_radius 0.0244;
+	resistance 0.306;
+}
+
+object overhead_line_conductor {
+	name OH101;
+	geometric_mean_radius 0.00814;
+	resistance 0.592;
+}
+
+
+object transformer_configuration {
+	name XFC400;
+	connect_type 2;
+	power_rating 6000;
+	primary_voltage 12470;
+	secondary_voltage 4160;
+	resistance 0.01;
+	reactance 0.06;
+}
+
+object transformer_configuration {
+	name PoleTop;
+	connect_type SINGLE_PHASE_CENTER_TAPPED;
+	power_rating 400;
+	powerA_rating 400;
+	primary_voltage 2400;
+	secondary_voltage 120;
+	resistance 0.01;
+	reactance 0.06;
+}
+
+
+object triplex_line_configuration {
+      name triplex_line_config;
+      conductor_1 Name_1_0_AA_triplex;
+      conductor_2 Name_1_0_AA_triplex;
+      conductor_N Name_1_0_AA_triplex;
+      insulation_thickness 0.1;
+      diameter 0.4;
+}
+object triplex_line_conductor {
+      name Name_1_0_AA_triplex;
+      resistance 0.57;
+      geometric_mean_radius 0.0111;
+}
+
+
+
+//feeder head
+
+object node {
+	name Node1;
+	bustype SWING;
+	phases A|B|C;
+	voltage_A +7199.558+0.000j;
+	voltage_B -3599.779-6235.000j;
+	voltage_C -3599.779+6235.000j;
+	nominal_voltage 7199.558;
+}
+
+object overhead_line {
+	name Link12;
+	phases A|B|C;
+	from Node1;
+	to Node2;
+	length 2000;
+	configuration LC300;
+	nominal_voltage 7199.558;
+}
+
+object node {
+	name Node2;
+	phases A|B|C;
+	voltage_A +7199.558+0.000j;
+	voltage_B -3599.779-6235.000j;
+	voltage_C -3599.779+6235.000j;
+	nominal_voltage 7199.558;
+}
+
+object transformer {
+	name substation_transformer;
+	phases A|B|C;
+	from Node2;
+	to substation_meter;
+	configuration XFC400;
+}
+
+object meter {
+      name substation_meter;
+      phases ABCN;
+      nominal_voltage 4160;
+}
+object recorder{
+	name substation_meter_pl;
+	parent substation_meter;
+	property measured_voltage_A,measured_voltage_B,measured_voltage_C,measured_power;
+	file substation_meter_data.csv;
+	interval 600;
+	limit 525600;
+  }
+
+//Branch 1
+
+object overhead_line {
+	name branch;
+	phases A|B|C;
+	from substation_meter;
+	to Node3;
+	length 2000;
+	configuration LC300;
+	nominal_voltage 2401.777;
+}
+object node {
+	name Node3;
+	phases A|B|C;  										//Delta connected phases
+	voltage_A +2401.777+0.000j;
+	voltage_B -1200.889-2080.000j;
+	voltage_C -1200.889+2080.000j;
+	nominal_voltage 4160;
+}
+
+object overhead_line {
+	name branch1;
+	phases A|B|C;
+	from Node3;
+	to intermed_meter;
+	length 2000;
+	configuration LC300;
+	nominal_voltage 4160;
+}
+
+
+object meter {
+	phases ABC;
+	nominal_voltage 4160;
+	name intermed_meter;
+}
+
+object transformer {
+	name Residential_xformer;
+	phases AS;
+	from intermed_meter;
+	to Load_Meter;
+	configuration PoleTop;
+}
+
+object triplex_meter {
+	name Load_Meter;
+	phases AS;
+	nominal_voltage 120.0;
+}
+
+object recorder{
+  name triplex_meter_pl;
+  parent Load_Meter;
+  property measured_voltage_1,measured_real_power;//measured_power;
+  file triplex_meter.csv;
+  interval 600;
+  limit 525600;
+}
+
+object triplex_line {
+    name to_Load_line;
+    from Load_Meter;
+    to Load_trip;
+    phases AS;
+    length 10;
+    configuration triplex_line_config;
+}
+
+object triplex_load {
+	name Load_trip;
+	phases AS;
+	voltage_1 120+0j;
+	voltage_2 120+0j;
+	voltage_N 0;
+	current_1  1.0;
+	constant_power_1 player_A.value;
+	nominal_voltage 120;
+	};
+
+object player {
+	name player_A;
+	file "converted0.csv";
+};
+
+object recorder{
+	name Load_meter_pl;
+	parent Load_trip;
+	property measured_voltage_1;
+	file Load.csv;
+	interval 600;
+	limit 525600;
+  }
