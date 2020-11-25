@@ -17,4 +17,6 @@ TRIPLEX_LINE CONDUCTOR:
 ASSERT MODEL:
 		
 	Look at " http://gridlab-d.sourceforge.net/wiki/index.php/Assert_(module)  "
+	
+https://lucid.app/lucidchart/invitations/accept/87885fe3-7936-4acc-b76b-79e3514511ad
 
