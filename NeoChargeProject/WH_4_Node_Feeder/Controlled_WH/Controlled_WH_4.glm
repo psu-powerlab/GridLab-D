@@ -1,5 +1,6 @@
-//Copyright (C) 2008 Battelle Memorial Institute
-// Modified by: Midrar Adham
+//	Copyright (C) 2008 Battelle Memorial Institute
+
+//Modified by Midrar Adham
 
 /////////////////////////////////////////////
 // BEGIN
@@ -8,7 +9,7 @@
 clock {
 	timestamp '2020-01-02 0:00:00';
     stoptime '2020-01-03 0:10:00';
-	timezone PST+8PDT;
+    timezone US/OR/Portland;
 }
 // Schedule
 schedule demand {
@@ -262,18 +263,18 @@ schedule price {
      40-49 16 * * * 0.1;
      50-59 16 * * * 0.1;
 //    50-59 16 * * * 0.1;
-     0-9 17 * * * 500;
-     10-19 17 * * * 500;
-     20-29 17 * * * 500;
-     30-39 17 * * * 500;
-     40-49 17 * * * 500;
-     50-59 17 * * * 500;
-     0-9 18 * * * 500;
-     10-19 18 * * * 500;
-     20-29 18 * * * 500;
-     30-39 18 * * * 500;
-     40-49 18 * * * 500;
-     50-59 18 * * * 500;
+     0-9 17 * * * 0.1;
+     10-19 17 * * * 0.1;
+     20-29 17 * * * 0.1;
+     30-39 17 * * * 0.1;
+     40-49 17 * * * 0.1;
+     50-59 17 * * * 0.1;
+     0-9 18 * * * 0.1;
+     10-19 18 * * * 0.1;
+     20-29 18 * * * 0.1;
+     30-39 18 * * * 0.1;
+     40-49 18 * * * 0.1;
+     50-59 18 * * * 0.1;
      0-9 19 * * * 0.1;
      10-19 19 * * * 0.1;
      20-29 19 * * * 0.1;
@@ -676,7 +677,7 @@ object triplex_meter {
 
 object house {
     name house1;
-    breaker_amps 200;
+    breaker_amps 30;
     parent trip_meter1;
     object waterheater {
         name wh1;
