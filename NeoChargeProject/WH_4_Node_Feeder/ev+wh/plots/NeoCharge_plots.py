@@ -2,7 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
-import datetime as dt
+from datetime import datetime
 df1 = pd.read_csv('house_meter.csv',usecols=['# timestamp'],parse_dates=['# timestamp'],engine='python')
 df2 = pd.read_csv('house_meter.csv',usecols=['measured_real_power'])
 df3 = pd.read_csv('house_meter_cont.csv',usecols=['# timestamp'],parse_dates=['# timestamp'],engine='python')
@@ -32,10 +32,12 @@ def plots(x_axis,y_axis,x1_axis,y1_axis):
     xfmt = md.DateFormatter('%H:%M:%S')
     ax1.xaxis.set_major_formatter(xfmt)
     plt.show()
-#plots(df1,df2,df3,df4)
-df5 = pd.read_csv('house_meter_cont.csv',usecols=['# timestamp','measured_real_power'],parse_dates=['# timestamp'])
-df5.plot(x="# timestamp", y="measured_real_power")
-plt.grid()
-plt.xlabel("Time")
-plt.ylabel("Power in watts")
-plt.show()
+plots(df1,df2,df3,df4)
+
+#df5 = pd.read_csv('house_meter_cont.csv',usecols=['# timestamp','measured_real_power'],parse_dates=['# timestamp'])
+#df5.plot(x="# timestamp", y="measured_real_power")
+#plt.grid()
+#plt.xlabel("Time")
+#plt.ylabel("Power in watts")
+#plt.show()
+
