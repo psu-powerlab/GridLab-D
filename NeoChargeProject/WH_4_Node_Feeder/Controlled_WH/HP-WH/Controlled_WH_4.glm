@@ -1,6 +1,6 @@
 //	Copyright (C) 2008 Battelle Memorial Institute
 
-// 4 Node Feeder: Balanced step-down grY-grY
+//Modified by Midrar Adham
 
 /////////////////////////////////////////////
 // BEGIN
@@ -9,7 +9,7 @@
 clock {
 	timestamp '2020-01-01 0:00:00';
     stoptime '2020-01-02 0:10:00';
-//    timezone US/OR/Portland;
+    timezone US/OR/Portland;
 }
 // Schedule
 schedule demand {
@@ -556,6 +556,13 @@ object overhead_line:34 {
 	length 2500;
 	configuration line_configuration:300;
 }
+//object switch {
+//    phases "ABCN";
+//    name sw;
+//    from node3;
+//    to node4;
+//    status OPEN;
+//}
 object node {
 	name node4;
 	phases "ABCN";
@@ -564,7 +571,6 @@ object node {
 	voltage_C -1200.889+2080.000j;
 	nominal_voltage 2400;
 }
-
 
 
 ///////////////////////////////
@@ -591,40 +597,35 @@ object triplex_line_configuration {
 }
 
 object transformer_configuration {
-    name AS_config;
-//    name CS_config;
+    name CS_config;
     connect_type SINGLE_PHASE_CENTER_TAPPED;
     install_type POLETOP;
-    powerA_rating 75;
-//    powerC_rating 75;
+    powerC_rating 75;
     primary_voltage 2401;
     secondary_voltage 120.000;
     impedance 0.006+0.0136j;
 }
 
-
     ///////////////////////////////
     // Triplex Lines, Nodes, and Transformers
     ///////////////////////////////
-
-
 object auction {
     name market;
-    period 30;
+    period 600;
     special_mode BUYERS_ONLY;
     unit kW;
     my_avg 5;
     my_std 0.03;
 //    property price;
     object player {
-        file price.csv;
+        file price.player;
         loop 10;
 //        property current_market.clearing_price;
         property fixed_price;
     };
 }
 object passive_controller {
-    period 30;
+    period 600;
     parent wh1;
     control_mode PROBABILITY_OFF;
     distribution_type NORMAL;
@@ -638,108 +639,86 @@ object passive_controller {
     state_property override;
 };
 
+
+
+
+
 object transformer {
 	name center_tap_1; 
-	phases AS; 
+	phases CS; 
 	from node4; 
 	to trip_node1; 
-	configuration AS_config;
+	configuration CS_config;
 }
 
 object triplex_node {
 	name trip_node1; 
-	phases AS; 
+	phases CS; 
 	nominal_voltage 120;        
 }
 
 object triplex_line {
 	name trip_line1; 
-	phases AS; 
+	phases CS; 
 	from trip_node1; 
 	to trip_meter1; 
 	length 0; 
 	configuration triplex_line_configuration_1;
 }
 
-
-
 object triplex_meter {
     name trip_meter1;
-    phases AS;
+    phases CS;
     nominal_voltage 120;
     object recorder {
         name rec;
-        file "house_meter_cont.csv";
-        property measured_real_power;
-        interval 30;
+        file "house_meter.csv";
+        property measured_real_power,measured_voltage_1,measured_current_1;
+        interval 600;
     };
+}
+
+schedule waterheater_demand_prob {
+    * 0-2 * * * 0.15;
+    * 3-5 * * * 0.35;
+    * 6-8 * * * 0.70;
+    * 9-17 * * * 0.500;
+    * 18-20 * * * 0.86;
+    * 21-23 * * * 0.25;
+}
+
+class waterheater {
+    loadshape myshape;
 }
 
 object house {
     name house1;
     breaker_amps 30;
+//    breaker_amps 30;
     parent trip_meter1;
     object waterheater {
+        myshape "type: pulsed; schedule: waterheater_demand_prob; energy: 1 kWh; count: 6; power: 1.1 kW";
         name wh1;
         location INSIDE;
         temperature 120;
-//        model ONEZNODE;
-        water_demand demand;
-        tank_diameter 1.5 ft; // Gridlab-d default setting
+        water_demand this.myshape;
         heat_mode ELECTRIC;
         heating_element_capacity 4.5 kW;
         thermostat_deadband 2;
         inlet_water_temperature 60;
         tank_setpoint 119;
-//        tank_setpoint setpoint;
         tank_UA 3.3;
         tank_volume 50;
         object recorder {
             file "wh_1.csv";
-            interval 30;
-//            interval 600;
+            interval 600;
             parent wh1;
-            property load_state,heatgain,height,tank_setpoint,waterheater_model,energy,water_demand,temperature,is_waterheater_on;
-        };
-    };
-}
-
-//load_state define if we're filling or draining the tank
-
-
-object triplex_load {
-    name house_ev;
-    phases AS;
-    parent trip_meter1;
-    voltage_1 120+0j;
-    voltage_2 120+0j;
-    voltage_N 0;
-    nominal_voltage 120;
-    object player {
-        name ev_player;
-        property constant_power_1;
-        file "converted0.csv";
-//        object recorder {
-//            name ev_recorder;
-//            interval 600;
-//            property measured_real_power;
-//            file "ev.csv";
-//        };
-    };
-    object triplex_meter {
-        name ev_meter;
-        phases AS;
-        nominal_voltage 120;
-        object recorder {
-            name ev_recorder;
-            file "ev.csv";
-            interval 30;
-//            interval 600;
-            property measured_power;
+//            property re_override,temperature,water_demand,discrete_step_size;
+            property height,tank_setpoint,waterheater_model,power.real,constant_power,constant_current,water_demand,temperature,is_waterheater_on;
         };
     };
 }
 
 ///////////////////////////////
 // END
-}
+///////////////////////////////

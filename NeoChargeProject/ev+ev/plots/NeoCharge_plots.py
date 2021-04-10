@@ -15,6 +15,7 @@ y = power['measured_real_power']
 x1 = timestamp['# timestamp']
 y1 = power2['measured_real_power']
 fig, (ax1,ax2) = plt.subplots(2,1,sharex=True)
+a,b = 0,4000
 ax1.plot(x1,y1)
 ax2.plot(x,y)
 ax1.grid()
@@ -24,6 +25,9 @@ ax1.title.set_text('EV+EV w/o Switch')
 ax2.title.set_text('EV+EV w Switch')
 ax1.set(ylabel='Power in Watts')
 ax2.set(ylabel='Power in Watts')
+ax2.set(xlabel='Time')
+ax1.set_ylim(a,b)
+ax2.set_ylim(a,b)
 #    plt.xlabel('Time')
 #    plt.ylabel('Power in Watts')
 ax1=plt.gca()

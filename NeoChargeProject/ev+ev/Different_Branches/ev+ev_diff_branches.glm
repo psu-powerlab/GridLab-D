@@ -607,43 +607,33 @@ object transformer_configuration {
     // Triplex Lines, Nodes, and Transformers
     ///////////////////////////////
 
-
-object auction {
-    name market;
-    period 30;
-    special_mode BUYERS_ONLY;
-    unit kW;
-    my_avg 5;
-    my_std 0.03;
-//    property price;
-    object player {
-        file price.csv;
-        loop 10;
-//        property current_market.clearing_price;
-        property fixed_price;
-    };
-}
-object passive_controller {
-    period 30;
-    parent wh1;
-    control_mode PROBABILITY_OFF;
-    distribution_type NORMAL;
-    observation_object market;
-    observation_property fixed_price;
-//    observation_property current_market.clearing_price;
-    stdev_observation_property my_std;
-    expectation_object market;
-    expectation_property my_avg;
-    comfort_level 9999;
-    state_property override;
-};
-
 object transformer {
 	name center_tap_1; 
 	phases AS; 
 	from node4; 
-	to trip_node1; 
+	to main_meter; 
 	configuration AS_config;
+}
+
+object triplex_meter {
+    name main_meter;
+    phases AS;
+    nominal_voltage 120;
+    object recorder {
+        name main_rec;
+        file "main_meter.csv";
+        property measured_real_power;
+        interval 30;
+    };
+}
+
+object triplex_line {
+    name main_line2; 
+    phases AS; 
+    from main_meter; 
+    to trip_node1; 
+    length 0; 
+    configuration triplex_line_configuration_1;
 }
 
 object triplex_node {
@@ -661,7 +651,14 @@ object triplex_line {
 	configuration triplex_line_configuration_1;
 }
 
-
+object triplex_line {
+    name trip_line2; 
+    phases AS; 
+    from trip_node1; 
+    to trip_meter2; 
+    length 0; 
+    configuration triplex_line_configuration_1;
+}
 
 object triplex_meter {
     name trip_meter1;
@@ -675,40 +672,19 @@ object triplex_meter {
     };
 }
 
-object house {
-    name house1;
-    breaker_amps 30;
-    parent trip_meter1;
-    object waterheater {
-        name wh1;
-        location INSIDE;
-        temperature 120;
-//        model ONEZNODE;
-        water_demand demand;
-        tank_diameter 1.5 ft; // Gridlab-d default setting
-        heat_mode ELECTRIC;
-        heating_element_capacity 4.5 kW;
-        thermostat_deadband 2;
-        inlet_water_temperature 60;
-        tank_setpoint 119;
-//        tank_setpoint setpoint;
-        tank_UA 3.3;
-        tank_volume 50;
-        object recorder {
-            file "wh_1.csv";
-            interval 30;
-//            interval 600;
-            parent wh1;
-            property load_state,heatgain,height,tank_setpoint,waterheater_model,energy,water_demand,temperature,is_waterheater_on;
-        };
+object triplex_meter {
+    name trip_meter2;
+    phases AS;
+    nominal_voltage 120;
+    object recorder {
+        name rec2;
+        file "house_meter_cont.csv";
+        property measured_real_power;
+        interval 30;
     };
 }
-
-//load_state define if we're filling or draining the tank
-
-
 object triplex_load {
-    name house_ev;
+    name ev1;
     phases AS;
     parent trip_meter1;
     voltage_1 120+0j;
@@ -716,30 +692,24 @@ object triplex_load {
     voltage_N 0;
     nominal_voltage 120;
     object player {
-        name ev_player;
+        name ev1_player;
         property constant_power_1;
-        file "converted0.csv";
-//        object recorder {
-//            name ev_recorder;
-//            interval 600;
-//            property measured_real_power;
-//            file "ev.csv";
-//        };
+        file "EV1.csv";
     };
-    object triplex_meter {
-        name ev_meter;
-        phases AS;
-        nominal_voltage 120;
-        object recorder {
-            name ev_recorder;
-            file "ev.csv";
-            interval 30;
-//            interval 600;
-            property measured_power;
-        };
+}
+object triplex_load {
+    name ev2;
+    phases AS;
+    parent trip_meter2;
+    voltage_1 120+0j;
+    voltage_2 120+0j;
+    voltage_N 0;
+    nominal_voltage 120;
+    object player {
+        name ev2_player;
+        property constant_power_1;
+        file "EV2.csv";
     };
 }
 
-///////////////////////////////
-// END
-}
+//load_state define if we're filling or draining the tank

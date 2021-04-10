@@ -1,0 +1,9 @@
+# file...... feeder.csv
+# date...... Tue Feb  9 23:18:29 2021
+# user...... midrar
+# host...... (null)
+# target.... transformer 5
+# trigger... (none)
+# interval.. 3600
+# limit..... 0
+# timestamp,power_out
