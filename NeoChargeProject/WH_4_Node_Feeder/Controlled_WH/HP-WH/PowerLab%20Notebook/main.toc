@@ -1,0 +1,19 @@
+\contentsline {section}{List of Errors}{4}{Item.8}%
+\contentsline {section}{List of Warnings}{5}{Item.9}%
+\contentsline {section}{\numberline {}Fall 2020}{6}{section.1}%
+\contentsline {subsection}{\numberline {}Dec 19, 2020 -- Water heater object GLD}{6}{subsection.1.1}%
+\contentsline {section}{\numberline {}Winter 2021}{8}{section.2}%
+\contentsline {subsection}{\numberline {}Jan 06, 2021 -- Control Water heater using switch and passive controller in IEEE 4 node feeder}{8}{subsection.2.1}%
+\contentsline {section}{\numberline {}Spring 2021}{13}{section.3}%
+\contentsline {subsection}{\numberline {}Apr 10, 2021 -- Control Heat Pump Water heater using switch and passive controller in IEEE 4 node feeder}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {}Related links}{15}{subsection.3.2}%
+\contentsline {subsection}{\numberline {}Water Heater Dynamic Driving Parameters}{15}{subsection.3.3}%
+\contentsline {subsection}{\numberline {}Heating Element Capacity}{15}{subsection.3.4}%
+\contentsline {subsection}{\numberline {}Commented commands by GLD folks}{15}{subsection.3.5}%
+\contentsline {subsection}{\numberline {}Water Heater Source Code Structure}{15}{subsection.3.6}%
+\contentsline {subsection}{\numberline {}Errors Summary}{16}{subsection.3.7}%
+\contentsline {subsection}{\numberline {}Questions}{16}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {.1}Heating Element Operation Principle in HPWH}{16}{subsubsection.3.8.1}%
+\contentsline {subsection}{\numberline {}How does a Heat Pump Water-Heater work?}{17}{subsection.3.9}%
+\contentsline {subsection}{\numberline {}This subsection is created in python. Let's see if it actually works.}{18}{subsection.3.10}%
+\contentsline {subsection}{\numberline {}May 12, 2021 -- EMCB Use Cases}{19}{subsection.3.11}%

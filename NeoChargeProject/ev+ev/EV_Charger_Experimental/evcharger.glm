@@ -91,6 +91,7 @@ object transformer:..10 {
 	to object triplex_meter {
 		phases AS;
 		object house {
+			breaker_amps 30;
 			object evcharger {
 				demand_profile "evcharger_demand_profile.csv";
 				charger_type MEDIUM;
@@ -109,6 +110,7 @@ object transformer:..10 {
 	to object triplex_meter {
 		phases BS;
 		object house {
+			breaker_amps 30;
 			object evcharger {
 				demand_profile "evcharger_demand_profile.csv";
 				charger_type MEDIUM;
@@ -127,6 +129,7 @@ object transformer:..10 {
 	to object triplex_meter {
 		phases CS;
 		object house {
+			breaker_amps 30;
 			object evcharger {
 				demand_profile "evcharger_demand_profile.csv";
 				charger_type MEDIUM;

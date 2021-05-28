@@ -7,8 +7,8 @@
 /////////////////////////////////////////////
 
 clock {
-	timestamp '2020-01-01 0:00:00';
-    stoptime '2020-01-02 0:10:00';
+	timestamp '2021-01-06 0:00:00';
+    stoptime '2021-01-14 00:00:00';
 //    timezone US/OR/Portland;
 }
 // Schedule
@@ -639,7 +639,7 @@ object triplex_meter {
         name rec;
         file "house_meter_cont.csv";
         property measured_real_power;
-        interval 30;
+        interval 600;
     };
 }
 
@@ -654,7 +654,7 @@ object triplex_load {
     object player {
         name ev1_player;
         property constant_power_1;
-        file "ev1_base_case.csv";
+        file "10040_house_profile_1_1.csv";
     };
 }
 object triplex_load {
@@ -668,7 +668,21 @@ object triplex_load {
     object player {
         name ev2_player;
         property constant_power_1;
-        file "ev2_base_case.csv";
+        file "EV5_5min.csv";
+    };
+}
+object triplex_load {
+    name ev3;
+    phases AS;
+    parent trip_meter1;
+    voltage_1 120+0j;
+    voltage_2 120+0j;
+    voltage_N 0;
+    nominal_voltage 120;
+    object player {
+        name ev3_player;
+        property constant_power_1;
+        file "DRYER1.csv";
     };
 }
 

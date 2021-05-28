@@ -1,0 +1,9 @@
+# file...... mainbus.csv
+# date...... Tue May  4 01:15:48 2021
+# user...... midrar
+# host...... (null)
+# target.... node 7
+# trigger... (none)
+# interval.. 3600
+# limit..... 0
+# timestamp,voltage_A,voltage_B,voltage_C

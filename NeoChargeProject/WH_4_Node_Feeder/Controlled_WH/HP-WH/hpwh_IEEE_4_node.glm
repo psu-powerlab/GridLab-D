@@ -1,6 +1,6 @@
 //	Copyright (C) 2008 Battelle Memorial Institute
 
-// 4 Node Feeder: Balanced step-down grY-grY
+//Modified by Midrar Adham
 
 /////////////////////////////////////////////
 // BEGIN
@@ -9,14 +9,18 @@
 clock {
 	timestamp '2020-01-01 0:00:00';
     stoptime '2020-01-02 0:10:00';
-//    timezone US/OR/Portland;
 }
+#include "./water_demand_schedule.glm"
+
+
 module powerflow;
 module residential {
     implicit_enduses NONE;
 }
-module tape;
 
+
+module market;
+module tape;
 
 object overhead_line_conductor:100 {
 	geometric_mean_radius 0.0244;
@@ -66,65 +70,20 @@ object node {
 	nominal_voltage 7200;
 }
 
-object overhead_line:12 {
-	phases "ABCN";
-	from node1;
-	to node2;
-	length 2000;
-	configuration line_configuration:300;
-}
-
-object node {
-	name node2;
-	phases "ABCN";
-	voltage_A +7199.558+0.000j;
-	voltage_B -3599.779-6235.000j;
-	voltage_C -3599.779+6235.000j;
-	nominal_voltage 7200;
-}
-
 object transformer:23 {
 	phases "ABCN";
-	from node2;
-	to node3;
+	from node1;
+	to node_646;
 	configuration transformer_configuration:400;
 }
-
 object node {
-	name node3;
+	name node_646;
 	phases "ABCN";
 	voltage_A +2401.777+0.000j;
 	voltage_B -1200.889-2080.000j;
 	voltage_C -1200.889+2080.000j;
 	nominal_voltage 2400;
 }
-
-object overhead_line:34 {
-	phases "ABCN";
-	from node3;
-    to node4;
-//	to load4;
-	length 2500;
-	configuration line_configuration:300;
-}
-object node {
-	name node4;
-	phases "ABCN";
-	voltage_A +2401.777+0.000j;
-	voltage_B -1200.889-2080.000j;
-	voltage_C -1200.889+2080.000j;
-	nominal_voltage 2400;
-}
-
-
-
-///////////////////////////////
-// TRIPLEX OBJECTS
-///////////////////////////////
-
-    ///////////////////////////////
-    // CONFIGURATIONS
-    ///////////////////////////////
 
 object triplex_line_conductor {
     name tp_line_conductor;
@@ -142,95 +101,119 @@ object triplex_line_configuration {
 }
 
 object transformer_configuration {
-    name AS_config;
-//    name CS_config;
+    name CS_config;
     connect_type SINGLE_PHASE_CENTER_TAPPED;
     install_type POLETOP;
-    powerA_rating 75;
-//    powerC_rating 75;
+    powerC_rating 75;
     primary_voltage 2401;
     secondary_voltage 120.000;
     impedance 0.006+0.0136j;
 }
 
 
+
+
     ///////////////////////////////
     // Triplex Lines, Nodes, and Transformers
     ///////////////////////////////
-
 object transformer {
-	name center_tap_1; 
-	phases AS; 
-	from node4; 
-	configuration AS_config;
-	to object triplex_meter {
-		name xfmr_meter;
-		phases AS;
-		object recorder {
-			name rec_xfmr;
-			property measured_real_power;
-			interval 60;
-			file "xfmr_meter.csv";
-		};
-	};
-
+	name center_tap_1;
+	phases CS;
+	from node_646;
+	to trip_node1;
+	configuration CS_config;
 }
-
-object triplex_line {
-	name trip_line_xfmr; 
-	phases AS; 
-	from xfmr_meter; 
-	to trip_node1; 
-	length 0;
-	configuration triplex_line_configuration_1;
-}
-
-
 
 object triplex_node {
-	name trip_node1; 
-	phases AS; 
-	nominal_voltage 120;        
+	name trip_node1;
+	phases CS;
+	nominal_voltage 120;
 }
 
 object triplex_line {
-	name trip_line1; 
-	phases AS; 
-	from trip_node1; 
-	to trip_meter1; 
+	name trip_line1;
+	phases CS;
+	from trip_node1;
+	to trip_meter1;
 	length 0;
 	configuration triplex_line_configuration_1;
 }
-
 
 object triplex_meter {
     name trip_meter1;
-    phases AS;
+    phases CS;
     nominal_voltage 120;
     object recorder {
         name rec;
-        file "house_meter_cont.csv";
-        property measured_real_power;
-        interval 30;
+        file "house_meter.csv";
+        property measured_real_power,measured_voltage_1,measured_current_1;
+        interval 600;
     };
 }
+
+
+
 object house {
     name house1;
-//    breaker_amps 200; // default = 15 Amps which does not work with MEDIUM evcharger object
+    breaker_amps 30;
     parent trip_meter1;
-    object evcharger {
-        name ev_charger1;
-	demand_profile "new_ev.csv";
-//	demand_profile "evcharger_demand_profile.csv";
-        charger_type LOW; // MEDIUM = 240V and 30A, HIGH = 240V and 70A, LOW = 120V and 15 Amps
-        capacity 50; // kWh
-        charge_at_work FALSE;
-	vehicle_type ELECTRIC;
-	object recorder {
-		name rec1;
-		property charge,capacity; //charge is current battery state of charge, fraction of capacity. 
-		file "ev1.csv";
-		interval 3600;
+    object waterheater {
+        name wh1;
+        location INSIDE;
+        heat_mode ELECTRIC;
+        temperature 119;
+        tank_setpoint 119;
+        heating_element_capacity 4.5 kW;
+        thermostat_deadband 2;
+        inlet_water_temperature 60;
+        tank_UA 3.3;
+        waterheater_model MULTILAYER;
+        tank_height 3.78;
+        water_demand demand;
+        tank_volume 50;
+        object recorder {
+            file "wh_E_1.csv";
+            interval 600;
+            property heating_element_capacity,water_demand,temperature,is_waterheater_on,tank_setpoint,waterheater_model;
+            };
+        };
+}
+object house {
+    name house2;
+    breaker_amps 30;
+    parent trip_meter1;
+    object waterheater {
+        name wh2;
+        location GARAGE;
+//        lower_tank_temperature 60;
+//        upper_tank_temperature 119;
+        temperature 119;
+        heat_mode HEAT_PUMP;
+        heating_element_capacity 0.6 kW;
+        thermostat_deadband 2;
+        inlet_water_temperature 60;
+        tank_setpoint 120;
+        tank_UA 3.3;
+	tank_height 3.78;
+//        discrete_step_size 60;
+//        circular_flow_rate 2;
+//	T_mixing_valve 110;
+//        waterheater_model MULTILAYER;
+//        upper_heating_element_state OFF;
+//        lower_heating_element_state ON;
+//        upper_tank_temperature 120;
+	water_demand demand;
+        tank_volume 50;
+        object recorder {
+            file "wh_hp_1.csv";
+            interval 600;
+//            property lower_tank_temperature,upper_tank_temperature,water_demand,is_waterheater_on;
+            property height,heating_element_capacity,tank_setpoint,waterheater_model,water_demand,temperature,is_waterheater_on;
         };
     };
 }
+
+///////////////////////////////
+// END
+///////////////////////////////
+
