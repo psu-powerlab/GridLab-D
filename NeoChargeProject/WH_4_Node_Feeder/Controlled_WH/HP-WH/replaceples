@@ -1,3 +1,32 @@
+object house {
+    name house1;
+    breaker_amps 30;
+    parent trip_meter1;
+    object waterheater {
+        name wh1;
+        location INSIDE;
+        heat_mode ELECTRIC;
+        temperature 119;
+        tank_setpoint 119;
+        heating_element_capacity 4.5 kW;
+        thermostat_deadband 2;
+        inlet_water_temperature 60;
+        tank_UA 3.3;
+        waterheater_model MULTILAYER;
+        tank_height 3.78;
+        water_demand demand;
+        tank_volume 50;
+        object recorder {
+            file "wh_E_1.csv";
+            interval 600;
+            property nominal_voltage,actual_load,lower_tank_temperature,upper_tank_temperature,water_demand,is_waterheater_on;
+//            property heating_element_capacity,water_demand,temperature,is_waterheater_on,tank_setpoint,waterheater_model;
+            };
+        };
+}
+
+
+
 object auction {
     name market;
     period 600;

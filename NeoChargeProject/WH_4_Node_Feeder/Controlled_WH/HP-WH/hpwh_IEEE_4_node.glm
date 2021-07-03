@@ -151,8 +151,6 @@ object triplex_meter {
     };
 }
 
-
-
 object house {
     name house1;
     breaker_amps 30;
@@ -161,7 +159,8 @@ object house {
         name wh1;
         location INSIDE;
         heat_mode ELECTRIC;
-        temperature 119;
+	upper_tank_temperature 117;
+        lower_tank_temperature 119;
         tank_setpoint 119;
         heating_element_capacity 4.5 kW;
         thermostat_deadband 2;
@@ -173,42 +172,42 @@ object house {
         tank_volume 50;
         object recorder {
             file "wh_E_1.csv";
-            interval 600;
-            property heating_element_capacity,water_demand,temperature,is_waterheater_on,tank_setpoint,waterheater_model;
+            interval 300;
+            property nominal_voltage,actual_load,lower_tank_temperature,upper_tank_temperature,water_demand,is_waterheater_on;
+//            property heating_element_capacity,water_demand,temperature,is_waterheater_on,tank_setpoint,waterheater_model;
             };
         };
 }
+
 object house {
     name house2;
     breaker_amps 30;
     parent trip_meter1;
     object waterheater {
         name wh2;
-        location GARAGE;
-//        lower_tank_temperature 60;
-//        upper_tank_temperature 119;
-        temperature 119;
+        location INSIDE;
+        lower_tank_temperature 119;
+        upper_tank_temperature 117;
         heat_mode HEAT_PUMP;
         heating_element_capacity 0.6 kW;
         thermostat_deadband 2;
         inlet_water_temperature 60;
-        tank_setpoint 120;
+        tank_setpoint 119;
         tank_UA 3.3;
-	tank_height 3.78;
-//        discrete_step_size 60;
-//        circular_flow_rate 2;
-//	T_mixing_valve 110;
-//        waterheater_model MULTILAYER;
-//        upper_heating_element_state OFF;
-//        lower_heating_element_state ON;
-//        upper_tank_temperature 120;
-	water_demand demand;
+        tank_height 3.78;
+        discrete_step_size 60;
+        circular_flow_rate 2;
+    	T_mixing_valve 110;
+        waterheater_model MULTILAYER;
+        upper_heating_element_state ON;
+        lower_heating_element_state ON;
+	    water_demand demand;
         tank_volume 50;
         object recorder {
             file "wh_hp_1.csv";
-            interval 600;
-//            property lower_tank_temperature,upper_tank_temperature,water_demand,is_waterheater_on;
-            property height,heating_element_capacity,tank_setpoint,waterheater_model,water_demand,temperature,is_waterheater_on;
+            interval 300;
+            property nominal_voltage,actual_load,lower_tank_temperature,upper_tank_temperature,water_demand,is_waterheater_on;
+//            property height,heating_element_capacity,tank_setpoint,waterheater_model,water_demand,temperature,is_waterheater_on;
         };
     };
 }

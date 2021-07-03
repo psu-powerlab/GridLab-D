@@ -43,7 +43,7 @@
 	<strictnames>TRUE</strictnames>
 	<website>http://www.gridlabd.org/</website>
 	<urlbase>http://www.gridlabd.org/</urlbase>
-	<randomseed>1344557458</randomseed>
+	<randomseed>-1336514897</randomseed>
 	<include>""</include>
 	<trace>""</trace>
 	<gdb_window>FALSE</gdb_window>
@@ -174,23 +174,23 @@
 			<rank>
 				<ordinal>2</ordinal>
 				<object>
-					<name>house2</name>
-					<id>19</id>
-				</object>
-				<object>
 					<name>house1</name>
 					<id>16</id>
+				</object>
+				<object>
+					<name>house2</name>
+					<id>19</id>
 				</object>
 			</rank>
 			<rank>
 				<ordinal>1</ordinal>
 				<object>
-					<name>wh1</name>
-					<id>17</id>
-				</object>
-				<object>
 					<name>wh2</name>
 					<id>20</id>
+				</object>
+				<object>
+					<name>wh1</name>
+					<id>17</id>
 				</object>
 			</rank>
 		</pass>
@@ -199,23 +199,23 @@
 			<rank>
 				<ordinal>1</ordinal>
 				<object>
-					<name>wh2</name>
-					<id>20</id>
-				</object>
-				<object>
 					<name>wh1</name>
 					<id>17</id>
+				</object>
+				<object>
+					<name>wh2</name>
+					<id>20</id>
 				</object>
 			</rank>
 			<rank>
 				<ordinal>2</ordinal>
 				<object>
-					<name>house2</name>
-					<id>19</id>
-				</object>
-				<object>
 					<name>house1</name>
 					<id>16</id>
+				</object>
+				<object>
+					<name>house2</name>
+					<id>19</id>
 				</object>
 			</rank>
 			<rank>
@@ -344,12 +344,12 @@
 			<rank>
 				<ordinal>0</ordinal>
 				<object>
-					<name>rec</name>
-					<id>15</id>
-				</object>
-				<object>
 					<name>(recorder:18)</name>
 					<id>18</id>
+				</object>
+				<object>
+					<name>rec</name>
+					<id>15</id>
 				</object>
 				<object>
 					<name>(recorder:21)</name>
@@ -396,7 +396,7 @@
 				<deltamode_PGenTotal>+0+0j</deltamode_PGenTotal>
 				<current_inj_A>+2.77795e-07-2.77795e-07j A</current_inj_A>
 				<current_inj_B>-3.79475e-07-1.0168e-07j A</current_inj_B>
-				<current_inj_C>-0.0673598+0.116671j A</current_inj_C>
+				<current_inj_C>-0.380199+0.658525j A</current_inj_C>
 				<current_AB>+0+0j A</current_AB>
 				<current_BC>+0+0j A</current_BC>
 				<current_CA>+0+0j A</current_CA>
@@ -470,10 +470,10 @@
 				<maximum_voltage_error>+0.0024 V</maximum_voltage_error>
 				<voltage_A>+2401.78-2.86479e-09d V</voltage_A>
 				<voltage_B>+2401.78-120d V</voltage_B>
-				<voltage_C>+2401.77+119.998d V</voltage_C>
+				<voltage_C>+2401.71+119.991d V</voltage_C>
 				<voltage_AB>+4160+30d V</voltage_AB>
-				<voltage_BC>+4160.02-90.0009d V</voltage_BC>
-				<voltage_CA>+4159.96+149.999d V</voltage_CA>
+				<voltage_BC>+4160.14-90.0052d V</voltage_BC>
+				<voltage_CA>+4159.75+149.996d V</voltage_CA>
 				<current_A>+0+0i A</current_A>
 				<current_B>+0+0i A</current_B>
 				<current_C>+0+0i A</current_C>
@@ -492,7 +492,7 @@
 				<deltamode_PGenTotal>+0+0j</deltamode_PGenTotal>
 				<current_inj_A>+0+0j A</current_inj_A>
 				<current_inj_B>+0+0j A</current_inj_B>
-				<current_inj_C>-0.201918+0.349732j A</current_inj_C>
+				<current_inj_C>-1.13968+1.97399j A</current_inj_C>
 				<current_AB>+0+0j A</current_AB>
 				<current_BC>+0+0j A</current_BC>
 				<current_CA>+0+0j A</current_CA>
@@ -785,25 +785,25 @@
 				<status>CLOSED</status>
 				<from>node1</from>
 				<to>node_646</to>
-				<power_in>+969.929+0.00608338j VA</power_in>
-				<power_out>+969.918-0.0281392j VA</power_out>
-				<power_out_real>+969.918 W</power_out_real>
-				<power_losses>+0.0107038+0.0342225j VA</power_losses>
+				<power_in>+5474.54+0.00612218j VA</power_in>
+				<power_out>+5474.39-0.898995j VA</power_out>
+				<power_out_real>+5474.39 W</power_out_real>
+				<power_losses>+0.155853+0.905117j VA</power_losses>
 				<power_in_A>+0.002+0.002j VA</power_in_A>
 				<power_in_B>+0.002+0.002j VA</power_in_B>
-				<power_in_C>+969.925+0.00208338j VA</power_in_C>
+				<power_in_C>+5474.54+0.00212218j VA</power_in_C>
 				<power_out_A>+0-0j VA</power_out_A>
 				<power_out_B>-0+0j VA</power_out_B>
-				<power_out_C>+969.918-0.0281392j VA</power_out_C>
+				<power_out_C>+5474.39-0.898995j VA</power_out_C>
 				<power_losses_A>+0.002+0.002j VA</power_losses_A>
 				<power_losses_B>+0.002+0.002j VA</power_losses_B>
-				<power_losses_C>+0.00670382+0.0302225j VA</power_losses_C>
+				<power_losses_C>+0.151853+0.901117j VA</power_losses_C>
 				<current_out_A>+0+0j A</current_out_A>
 				<current_out_B>+0+0j A</current_out_B>
-				<current_out_C>-0.201918+0.349732j A</current_out_C>
+				<current_out_C>-1.13968+1.97399j A</current_out_C>
 				<current_in_A>+2.77795e-07-2.77795e-07j A</current_in_A>
 				<current_in_B>-3.79475e-07-1.0168e-07j A</current_in_B>
-				<current_in_C>-0.0673598+0.116671j A</current_in_C>
+				<current_in_C>-0.380199+0.658525j A</current_in_C>
 				<fault_current_in_A>+0+0j A</fault_current_in_A>
 				<fault_current_in_B>+0+0j A</fault_current_in_B>
 				<fault_current_in_C>+0+0j A</fault_current_in_C>
@@ -856,25 +856,25 @@
 				<status>CLOSED</status>
 				<from>node_646</from>
 				<to>trip_node1</to>
-				<power_in>+969.918-0.0281392j VA</power_in>
-				<power_out>+969.843-0.198693j VA</power_out>
-				<power_out_real>+969.843 W</power_out_real>
-				<power_losses>+0.0752863+0.170554j VA</power_losses>
+				<power_in>+5474.39-0.898995j VA</power_in>
+				<power_out>+5471.99-6.33021j VA</power_out>
+				<power_out_real>+5471.99 W</power_out_real>
+				<power_losses>+2.39617+5.43122j VA</power_losses>
 				<power_in_A>+0-0j VA</power_in_A>
 				<power_in_B>-0+0j VA</power_in_B>
-				<power_in_C>+969.918-0.0281392j VA</power_in_C>
-				<power_out_A>+484.921-0.0993466j VA</power_out_A>
-				<power_out_B>+484.921-0.0993466j VA</power_out_B>
+				<power_in_C>+5474.39-0.898995j VA</power_in_C>
+				<power_out_A>+2736-3.16511j VA</power_out_A>
+				<power_out_B>+2736-3.16511j VA</power_out_B>
 				<power_out_C>+0+0j VA</power_out_C>
 				<power_losses_A>+0+0j VA</power_losses_A>
 				<power_losses_B>+0+0j VA</power_losses_B>
-				<power_losses_C>+0.0752863+0.170554j VA</power_losses_C>
-				<current_out_A>-2.02002+3.49877j A</current_out_A>
-				<current_out_B>+2.02002-3.49877j A</current_out_B>
+				<power_losses_C>+2.39617+5.43122j VA</power_losses_C>
+				<current_out_A>-11.4016+19.7481j A</current_out_A>
+				<current_out_B>+11.4016-19.7481j A</current_out_B>
 				<current_out_C>+0+0j A</current_out_C>
 				<current_in_A>+0+0j A</current_in_A>
 				<current_in_B>+0+0j A</current_in_B>
-				<current_in_C>-0.201918+0.349732j A</current_in_C>
+				<current_in_C>-1.13968+1.97399j A</current_in_C>
 				<fault_current_in_A>+0+0j A</fault_current_in_A>
 				<fault_current_in_B>+0+0j A</fault_current_in_B>
 				<fault_current_in_C>+0+0j A</fault_current_in_C>
@@ -923,12 +923,12 @@
 				<bustype>PQ</bustype>
 				<busflags>HASSOURCE</busflags>
 				<maximum_voltage_error>+0.00012 V</maximum_voltage_error>
-				<voltage_1>+120.029+119.988d V</voltage_1>
-				<voltage_2>+120.029+119.988d V</voltage_2>
+				<voltage_1>+119.983+119.934d V</voltage_1>
+				<voltage_2>+119.983+119.934d V</voltage_2>
 				<voltage_N>+0+0d V</voltage_N>
-				<voltage_12>+240.058+119.988d V</voltage_12>
-				<voltage_1N>+120.029+119.988d V</voltage_1N>
-				<voltage_2N>+120.029+119.988d V</voltage_2N>
+				<voltage_12>+239.966+119.934d V</voltage_12>
+				<voltage_1N>+119.983+119.934d V</voltage_1N>
+				<voltage_2N>+119.983+119.934d V</voltage_2N>
 				<prerotated_current_1>+0+0i A</prerotated_current_1>
 				<prerotated_current_2>+0+0i A</prerotated_current_2>
 				<prerotated_current_12>+0+0i A</prerotated_current_12>
@@ -1034,16 +1034,16 @@
 				<measured_reactive_energy>+0 VAh</measured_reactive_energy>
 				<measured_reactive_energy_delta>+0 VAh</measured_reactive_energy_delta>
 				<measured_energy_delta_timestep>-1 s</measured_energy_delta_timestep>
-				<measured_power>+969.843-0.0117383d VA</measured_power>
-				<indiv_measured_power_1>+484.921-0.0117383d VA</indiv_measured_power_1>
-				<indiv_measured_power_2>+484.921-0.0993466j VA</indiv_measured_power_2>
+				<measured_power>+5471.99-0.066282d VA</measured_power>
+				<indiv_measured_power_1>+2736-0.066282d VA</indiv_measured_power_1>
+				<indiv_measured_power_2>+2736-3.16511j VA</indiv_measured_power_2>
 				<indiv_measured_power_N>+0+0d VA</indiv_measured_power_N>
-				<measured_demand>+969.843 W</measured_demand>
-				<measured_real_power>+969.843 W</measured_real_power>
-				<measured_reactive_power>-0.198693 VAr</measured_reactive_power>
+				<measured_demand>+5471.99 W</measured_demand>
+				<measured_real_power>+5471.99 W</measured_real_power>
+				<measured_reactive_power>-6.33021 VAr</measured_reactive_power>
 				<meter_power_consumption>+0+0j VA</meter_power_consumption>
-				<measured_voltage_1>+120.029+119.988d V</measured_voltage_1>
-				<measured_voltage_2>+120.029+119.988d V</measured_voltage_2>
+				<measured_voltage_1>+119.983+119.934d V</measured_voltage_1>
+				<measured_voltage_2>+119.983+119.934d V</measured_voltage_2>
 				<measured_voltage_N>+0+0d V</measured_voltage_N>
 				<measured_real_max_voltage_1_in_interval>+0 V</measured_real_max_voltage_1_in_interval>
 				<measured_real_max_voltage_2_in_interval>+0 V</measured_real_max_voltage_2_in_interval>
@@ -1067,8 +1067,8 @@
 				<measured_avg_real_power_in_interval>+0 W</measured_avg_real_power_in_interval>
 				<measured_avg_reactive_power_in_interval>+0 VAr</measured_avg_reactive_power_in_interval>
 				<measured_stats_interval>+0 s</measured_stats_interval>
-				<measured_current_1>-2.02002+3.49877j A</measured_current_1>
-				<measured_current_2>+2.02002-3.49877j A</measured_current_2>
+				<measured_current_1>-11.4016+19.7481j A</measured_current_1>
+				<measured_current_2>+11.4016-19.7481j A</measured_current_2>
 				<measured_current_N>-0-0j A</measured_current_N>
 				<customer_interrupted>FALSE</customer_interrupted>
 				<customer_interrupted_secondary>FALSE</customer_interrupted_secondary>
@@ -1090,12 +1090,12 @@
 				<bustype>PQ</bustype>
 				<busflags>HASSOURCE</busflags>
 				<maximum_voltage_error>+0.00012 V</maximum_voltage_error>
-				<voltage_1>+120.029+119.988d V</voltage_1>
-				<voltage_2>+120.029+119.988d V</voltage_2>
+				<voltage_1>+119.983+119.934d V</voltage_1>
+				<voltage_2>+119.983+119.934d V</voltage_2>
 				<voltage_N>+0+0d V</voltage_N>
-				<voltage_12>+240.058+119.988d V</voltage_12>
-				<voltage_1N>+120.029+119.988d V</voltage_1N>
-				<voltage_2N>+120.029+119.988d V</voltage_2N>
+				<voltage_12>+239.966+119.934d V</voltage_12>
+				<voltage_1N>+119.983+119.934d V</voltage_1N>
+				<voltage_2N>+119.983+119.934d V</voltage_2N>
 				<prerotated_current_1>+0+0i A</prerotated_current_1>
 				<prerotated_current_2>+0+0i A</prerotated_current_2>
 				<prerotated_current_12>+0+0i A</prerotated_current_12>
@@ -1201,24 +1201,24 @@
 				<status>CLOSED</status>
 				<from>trip_node1</from>
 				<to>trip_meter1</to>
-				<power_in>+969.843-0.198693j VA</power_in>
-				<power_out>+969.843-0.198693j VA</power_out>
-				<power_out_real>+969.843 W</power_out_real>
+				<power_in>+5471.99-6.33021j VA</power_in>
+				<power_out>+5471.99-6.33021j VA</power_out>
+				<power_out_real>+5471.99 W</power_out_real>
 				<power_losses>+0+0j VA</power_losses>
-				<power_in_A>+484.921-0.0993466j VA</power_in_A>
-				<power_in_B>+484.921-0.0993466j VA</power_in_B>
+				<power_in_A>+2736-3.16511j VA</power_in_A>
+				<power_in_B>+2736-3.16511j VA</power_in_B>
 				<power_in_C>+0+0j VA</power_in_C>
-				<power_out_A>+484.921-0.0993466j VA</power_out_A>
-				<power_out_B>+484.921-0.0993466j VA</power_out_B>
+				<power_out_A>+2736-3.16511j VA</power_out_A>
+				<power_out_B>+2736-3.16511j VA</power_out_B>
 				<power_out_C>+0+0j VA</power_out_C>
 				<power_losses_A>+0+0j VA</power_losses_A>
 				<power_losses_B>+0+0j VA</power_losses_B>
 				<power_losses_C>+0+0j VA</power_losses_C>
-				<current_out_A>-2.02002+3.49877j A</current_out_A>
-				<current_out_B>+2.02002-3.49877j A</current_out_B>
+				<current_out_A>-11.4016+19.7481j A</current_out_A>
+				<current_out_B>+11.4016-19.7481j A</current_out_B>
 				<current_out_C>+0+0j A</current_out_C>
-				<current_in_A>-2.02002+3.49877j A</current_in_A>
-				<current_in_B>+2.02002-3.49877j A</current_in_B>
+				<current_in_A>-11.4016+19.7481j A</current_in_A>
+				<current_in_B>+11.4016-19.7481j A</current_in_B>
 				<current_in_C>+0+0j A</current_in_C>
 				<fault_current_in_A>+0+0j A</fault_current_in_A>
 				<fault_current_in_B>+0+0j A</fault_current_in_B>
@@ -1374,7 +1374,7 @@
 				<airchange_per_hour>+0.5 unit/h</airchange_per_hour>
 				<airchange_UA>+176.547 Btu/degF*h</airchange_UA>
 				<UA>+573.192 Btu/degF*h</UA>
-				<internal_gain>+152.071 Btu/h</internal_gain>
+				<internal_gain>+126.694 Btu/h</internal_gain>
 				<solar_gain>+0 Btu/h</solar_gain>
 				<incident_solar_radiation>+0 Btu/h*sf</incident_solar_radiation>
 				<heat_cool_gain>+0 Btu/h</heat_cool_gain>
@@ -1490,12 +1490,12 @@
 				<last_heating_load>+0 kW</last_heating_load>
 				<last_cooling_load>+0 kW</last_cooling_load>
 				<hvac_power>+0+0j kVA</hvac_power>
-				<total_load>+0 kVA</total_load>
+				<total_load>+4.5 kVA</total_load>
 				<panel>power_factor: 0.000000; power.r: 0.000000</panel>
 				<panel.energy>+0+0i kVAh</panel.energy>
-				<panel.power>+0+0j kVA</panel.power>
+				<panel.power>+4.5+0j kVA</panel.power>
 				<panel.peak_demand>+0+0i kVA</panel.peak_demand>
-				<panel.heatgain>+152.071 Btu/h</panel.heatgain>
+				<panel.heatgain>+126.694 Btu/h</panel.heatgain>
 				<panel.cumulative_heatgain>+0 Btu</panel.cumulative_heatgain>
 				<panel.heatgain_fraction>+0 pu</panel.heatgain_fraction>
 				<panel.current_fraction>+0 pu</panel.current_fraction>
@@ -1504,7 +1504,7 @@
 				<panel.power_factor>+0</panel.power_factor>
 				<panel.constant_power>+0+0j kVA</panel.constant_power>
 				<panel.constant_current>+0+0j kVA</panel.constant_current>
-				<panel.constant_admittance>+0+0j kVA</panel.constant_admittance>
+				<panel.constant_admittance>+4.5+0j kVA</panel.constant_admittance>
 				<panel.voltage_factor>+0 pu</panel.voltage_factor>
 				<panel.breaker_amps>+0 A</panel.breaker_amps>
 				<panel.configuration>IS110</panel.configuration>
@@ -1518,23 +1518,23 @@
 				<a>+497.691</a>
 				<b>+5622.4</b>
 				<c>+573.192</c>
-				<d>+42568.3</d>
+				<d>+42542.9</d>
 				<c1>-9.16858</c1>
 				<c2>+8.62747</c2>
 				<A3>+1.05079</A3>
 				<A4>-0.234774</A4>
-				<k1>-1.30069</k1>
-				<k2>-0.0467682</k2>
+				<k1>-1.25709</k1>
+				<k2>-0.0460989</k2>
 				<r1>-0.102885</r1>
 				<r2>-11.1941</r2>
-				<Teq>+74.2653</Teq>
+				<Teq>+74.221</Teq>
 				<Tevent>+76</Tevent>
-				<Qi>+152.071</Qi>
-				<Qa>+76.0356</Qa>
-				<Qm>+76.0356</Qm>
+				<Qi>+126.694</Qi>
+				<Qa>+63.3468</Qa>
+				<Qm>+63.3468</Qm>
 				<Qh>+0</Qh>
 				<Qlatent>+0</Qlatent>
-				<dTair>+0.657349</dTair>
+				<dTair>+0.64537</dTair>
 				<adj_cooling_cap>+53191.2</adj_cooling_cap>
 				<adj_heating_cap>+76503.3</adj_heating_cap>
 				<adj_cooling_cop>+4.5107</adj_cooling_cop>
@@ -1592,7 +1592,7 @@
 				<airchange_per_hour>+0.5 unit/h</airchange_per_hour>
 				<airchange_UA>+176.547 Btu/degF*h</airchange_UA>
 				<UA>+573.192 Btu/degF*h</UA>
-				<internal_gain>-5827.67 Btu/h</internal_gain>
+				<internal_gain>+3439.39 Btu/h</internal_gain>
 				<solar_gain>+0 Btu/h</solar_gain>
 				<incident_solar_radiation>+0 Btu/h*sf</incident_solar_radiation>
 				<heat_cool_gain>+0 Btu/h</heat_cool_gain>
@@ -1708,12 +1708,12 @@
 				<last_heating_load>+0 kW</last_heating_load>
 				<last_cooling_load>+0 kW</last_cooling_load>
 				<hvac_power>+0+0j kVA</hvac_power>
-				<total_load>+0.969609 kVA</total_load>
+				<total_load>+0.972766 kVA</total_load>
 				<panel>power_factor: 0.000000; power.r: 0.000000</panel>
 				<panel.energy>+0+0i kVAh</panel.energy>
-				<panel.power>+0.969609+0j kVA</panel.power>
+				<panel.power>+0.972766+0j kVA</panel.power>
 				<panel.peak_demand>+0+0i kVA</panel.peak_demand>
-				<panel.heatgain>-5827.67 Btu/h</panel.heatgain>
+				<panel.heatgain>+3439.39 Btu/h</panel.heatgain>
 				<panel.cumulative_heatgain>+0 Btu</panel.cumulative_heatgain>
 				<panel.heatgain_fraction>+0 pu</panel.heatgain_fraction>
 				<panel.current_fraction>+0 pu</panel.current_fraction>
@@ -1722,7 +1722,7 @@
 				<panel.power_factor>+0</panel.power_factor>
 				<panel.constant_power>+0+0j kVA</panel.constant_power>
 				<panel.constant_current>+0+0j kVA</panel.constant_current>
-				<panel.constant_admittance>+0.969609+0j kVA</panel.constant_admittance>
+				<panel.constant_admittance>+0.972766+0j kVA</panel.constant_admittance>
 				<panel.voltage_factor>+0 pu</panel.voltage_factor>
 				<panel.breaker_amps>+0 A</panel.breaker_amps>
 				<panel.configuration>IS110</panel.configuration>
@@ -1736,23 +1736,23 @@
 				<a>+497.691</a>
 				<b>+5622.4</b>
 				<c>+573.192</c>
-				<d>+36588.6</d>
+				<d>+45855.6</d>
 				<c1>-9.16858</c1>
 				<c2>+8.62747</c2>
 				<A3>+1.05079</A3>
 				<A4>-0.234774</A4>
-				<k1>+11.9017</k1>
-				<k2>+0.231382</k2>
+				<k1>-4.02134</k1>
+				<k2>-0.0130308</k2>
 				<r1>-0.102885</r1>
 				<r2>-11.1941</r2>
-				<Teq>+63.833</Teq>
-				<Tevent>+69</Tevent>
-				<Qi>-5827.67</Qi>
-				<Qa>-2913.83</Qa>
-				<Qm>-2913.83</Qm>
+				<Teq>+80.0004</Teq>
+				<Tevent>+76</Tevent>
+				<Qi>+3439.39</Qi>
+				<Qa>+1719.69</Qa>
+				<Qm>+1719.69</Qm>
 				<Qh>+0</Qh>
 				<Qlatent>+0</Qlatent>
-				<dTair>-3.81461</dTair>
+				<dTair>+0.559603</dTair>
 				<adj_cooling_cap>+53191.2</adj_cooling_cap>
 				<adj_heating_cap>+76503.3</adj_heating_cap>
 				<adj_cooling_cop>+4.5107</adj_cooling_cop>
@@ -1803,18 +1803,18 @@
 				<water_demand>+0 gpm</water_demand>
 				<heating_element_capacity>+4.5 kW</heating_element_capacity>
 				<inlet_water_temperature>+60 degF</inlet_water_temperature>
-				<waterheater_model>ONEZNODE</waterheater_model>
+				<waterheater_model>MULTILAYER</waterheater_model>
 				<heat_mode>ELECTRIC</heat_mode>
 				<location>INSIDE</location>
 				<tank_setpoint>+119 degF</tank_setpoint>
 				<thermostat_deadband>+2 degF</thermostat_deadband>
 				<temperature>+119 degF</temperature>
-				<height>+3.78 ft</height>
-				<demand>+0+0j kVA</demand>
-				<actual_load>+0 kW</actual_load>
-				<previous_load>+0 kW</previous_load>
-				<actual_power>+0+0j kVA</actual_power>
-				<is_waterheater_on>+0</is_waterheater_on>
+				<height>+0 ft</height>
+				<demand>+4.5+0j kVA</demand>
+				<actual_load>+4.5 kW</actual_load>
+				<previous_load>+4.5 kW</previous_load>
+				<actual_power>+4.5+0j kVA</actual_power>
+				<is_waterheater_on>+1</is_waterheater_on>
 				<gas_fan_power>+0.045 kW</gas_fan_power>
 				<gas_standby_power>+0 kW</gas_standby_power>
 				<heat_pump_coefficient_of_performance>+0 Btu/kWh</heat_pump_coefficient_of_performance>
@@ -1829,23 +1829,23 @@
 				<actual_voltage>+240</actual_voltage>
 				<nominal_voltage>+240</nominal_voltage>
 				<re_override>OV_NORMAL</re_override>
-				<lower_tank_setpoint>+127.69 degF</lower_tank_setpoint>
-				<upper_tank_setpoint>+127.69 degF</upper_tank_setpoint>
-				<lower_tank_deadband>+2.97369 degF</lower_tank_deadband>
-				<upper_tank_deadband>+2.97369 degF</upper_tank_deadband>
-				<lower_tank_temperature>+0 degF</lower_tank_temperature>
-				<upper_tank_temperature>+0 degF</upper_tank_temperature>
-				<discrete_step_size>+0 s</discrete_step_size>
-				<circular_flow_rate>+0 gpm</circular_flow_rate>
-				<T_mixing_valve>+0 degF</T_mixing_valve>
+				<lower_tank_setpoint>+119 degF</lower_tank_setpoint>
+				<upper_tank_setpoint>+119 degF</upper_tank_setpoint>
+				<lower_tank_deadband>+2 degF</lower_tank_deadband>
+				<upper_tank_deadband>+2 degF</upper_tank_deadband>
+				<lower_tank_temperature>+119 degF</lower_tank_temperature>
+				<upper_tank_temperature>+119 degF</upper_tank_temperature>
+				<discrete_step_size>+1 s</discrete_step_size>
+				<circular_flow_rate>+1 gpm</circular_flow_rate>
+				<T_mixing_valve>+118 degF</T_mixing_valve>
 				<lower_heating_element_state>OFF</lower_heating_element_state>
-				<upper_heating_element_state>OFF</upper_heating_element_state>
+				<upper_heating_element_state>ON</upper_heating_element_state>
 				<shape>type: unknown</shape>
 				<load>impedance_fraction: 1.000000; power_factor: 0.000000; power.r: 0.000000</load>
 				<energy>+0+0i kVAh</energy>
-				<power>+0+0j kVA</power>
+				<power>+4.5+0j kVA</power>
 				<peak_demand>+0+0i kVA</peak_demand>
-				<heatgain>+152.071 Btu/h</heatgain>
+				<heatgain>+126.694 Btu/h</heatgain>
 				<cumulative_heatgain>+0 Btu</cumulative_heatgain>
 				<heatgain_fraction>+0 pu</heatgain_fraction>
 				<current_fraction>+0 pu</current_fraction>
@@ -1854,12 +1854,12 @@
 				<power_factor>+0</power_factor>
 				<constant_power>+0+0j kVA</constant_power>
 				<constant_current>+0+0j kVA</constant_current>
-				<constant_admittance>+0+0j kVA</constant_admittance>
+				<constant_admittance>+4.5+0j kVA</constant_admittance>
 				<voltage_factor>+1 pu</voltage_factor>
 				<breaker_amps>+30 A</breaker_amps>
 				<configuration>IS220</configuration>
 				<override>NORMAL</override>
-				<power_state>OFF</power_state>
+				<power_state>ON</power_state>
 			</waterheater>
 			<waterheater>
 				<id>20</id>
@@ -1873,51 +1873,51 @@
 				<tank_diameter>+1.50047 ft</tank_diameter>
 				<tank_height>+3.78 ft</tank_height>
 				<water_demand>+0 gpm</water_demand>
-				<heating_element_capacity>+0.969609 kW</heating_element_capacity>
+				<heating_element_capacity>+0.972766 kW</heating_element_capacity>
 				<inlet_water_temperature>+60 degF</inlet_water_temperature>
-				<waterheater_model>ONEZNODE</waterheater_model>
+				<waterheater_model>MULTILAYER</waterheater_model>
 				<heat_mode>HEAT_PUMP</heat_mode>
 				<location>INSIDE</location>
 				<tank_setpoint>+120 degF</tank_setpoint>
 				<thermostat_deadband>+2 degF</thermostat_deadband>
-				<temperature>+119 degF</temperature>
-				<height>+3.78 ft</height>
-				<demand>+0.969609+0j kVA</demand>
-				<actual_load>+0.969609 kW</actual_load>
-				<previous_load>+0.969609 kW</previous_load>
-				<actual_power>+0.969609+0j kVA</actual_power>
+				<temperature>+119.726 degF</temperature>
+				<height>+0 ft</height>
+				<demand>+0.972766+0j kVA</demand>
+				<actual_load>+0.972766 kW</actual_load>
+				<previous_load>+0.972766 kW</previous_load>
+				<actual_power>+0.972766+0j kVA</actual_power>
 				<is_waterheater_on>+1</is_waterheater_on>
 				<gas_fan_power>+0.006 kW</gas_fan_power>
 				<gas_standby_power>+0 kW</gas_standby_power>
-				<heat_pump_coefficient_of_performance>+2.80445 Btu/kWh</heat_pump_coefficient_of_performance>
-				<Tcontrol>+119 degF</Tcontrol>
+				<heat_pump_coefficient_of_performance>+0 Btu/kWh</heat_pump_coefficient_of_performance>
+				<Tcontrol>+119.726 degF</Tcontrol>
 				<current_tank_status>FULL</current_tank_status>
 				<dr_signal>+1</dr_signal>
 				<COP>+0</COP>
 				<operating_mode>+0</operating_mode>
 				<fortran_sim_time>+0 s</fortran_sim_time>
 				<waterheater_power>+0 kW</waterheater_power>
-				<load_state>RECOVERING</load_state>
+				<load_state>DEPLETING</load_state>
 				<actual_voltage>+240</actual_voltage>
 				<nominal_voltage>+240</nominal_voltage>
 				<re_override>OV_NORMAL</re_override>
-				<lower_tank_setpoint>+132.608 degF</lower_tank_setpoint>
-				<upper_tank_setpoint>+132.608 degF</upper_tank_setpoint>
-				<lower_tank_deadband>+2.20393 degF</lower_tank_deadband>
-				<upper_tank_deadband>+2.20393 degF</upper_tank_deadband>
-				<lower_tank_temperature>+0 degF</lower_tank_temperature>
-				<upper_tank_temperature>+120 degF</upper_tank_temperature>
-				<discrete_step_size>+60 s</discrete_step_size>
-				<circular_flow_rate>+2 gpm</circular_flow_rate>
-				<T_mixing_valve>+110 degF</T_mixing_valve>
-				<lower_heating_element_state>OFF</lower_heating_element_state>
+				<lower_tank_setpoint>+120 degF</lower_tank_setpoint>
+				<upper_tank_setpoint>+120 degF</upper_tank_setpoint>
+				<lower_tank_deadband>+2 degF</lower_tank_deadband>
+				<upper_tank_deadband>+2 degF</upper_tank_deadband>
+				<lower_tank_temperature>+119.726 degF</lower_tank_temperature>
+				<upper_tank_temperature>+119.726 degF</upper_tank_temperature>
+				<discrete_step_size>+1 s</discrete_step_size>
+				<circular_flow_rate>+1 gpm</circular_flow_rate>
+				<T_mixing_valve>+119 degF</T_mixing_valve>
+				<lower_heating_element_state>ON</lower_heating_element_state>
 				<upper_heating_element_state>OFF</upper_heating_element_state>
 				<shape>type: unknown</shape>
 				<load>impedance_fraction: 1.000000; power_factor: 0.000000; power.r: 0.000000</load>
 				<energy>+0+0i kVAh</energy>
-				<power>+0.969609+0j kVA</power>
+				<power>+0.972766+0j kVA</power>
 				<peak_demand>+0+0i kVA</peak_demand>
-				<heatgain>-5827.67 Btu/h</heatgain>
+				<heatgain>+3439.39 Btu/h</heatgain>
 				<cumulative_heatgain>+0 Btu</cumulative_heatgain>
 				<heatgain_fraction>+0 pu</heatgain_fraction>
 				<current_fraction>+0 pu</current_fraction>
@@ -1926,7 +1926,7 @@
 				<power_factor>+0</power_factor>
 				<constant_power>+0+0j kVA</constant_power>
 				<constant_current>+0+0j kVA</constant_current>
-				<constant_admittance>+0.969609+0j kVA</constant_admittance>
+				<constant_admittance>+0.972766+0j kVA</constant_admittance>
 				<voltage_factor>+1 pu</voltage_factor>
 				<breaker_amps>+30 A</breaker_amps>
 				<configuration>IS220</configuration>
@@ -2040,7 +2040,7 @@
 				<parent>wh1</parent>
 				<clock>2020-01-01 00:00:00 UTC</clock>
 				<name>recorder:18</name>
-				<property>"heating_element_capacity, water_demand,temperature,is_waterheater_on,tank_setpoint,waterheater_model"</property>
+				<property>heating_element_capacity,water_demand,temperature,is_waterheater_on,tank_setpoint,waterheater_model</property>
 				<trigger>""</trigger>
 				<file>wh_E_1.csv</file>
 				<filetype>txt</filetype>
@@ -2064,7 +2064,7 @@
 				<parent>wh2</parent>
 				<clock>2020-01-01 00:00:00 UTC</clock>
 				<name>recorder:21</name>
-				<property>upper_heating_element_capacity,lower_heating_element_capacity,height,heating_element_capacity,tank_setpoint,waterheater_model,water_demand,temperature,is_waterheater_on</property>
+				<property>actual_kW,nominal_voltage,actual_load,lower_tank_temperature,upper_tank_temperature,water_demand,is_waterheater_on</property>
 				<trigger>""</trigger>
 				<file>wh_hp_1.csv</file>
 				<filetype>txt</filetype>
