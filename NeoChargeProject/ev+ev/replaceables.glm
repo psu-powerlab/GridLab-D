@@ -1,0 +1,70 @@
+
+object auction {
+    name market;
+    period 30;
+    special_mode BUYERS_ONLY;
+    unit kW;
+    my_avg 5;
+    my_std 0.03;
+//    property price;
+    object player {
+        file price.csv;
+        loop 10;
+//        property current_market.clearing_price;
+        property fixed_price;
+    };
+}
+object passive_controller {
+    period 30;
+    parent wh1;
+    control_mode PROBABILITY_OFF;
+    distribution_type NORMAL;
+    observation_object market;
+    observation_property fixed_price;
+//    observation_property current_market.clearing_price;
+    stdev_observation_property my_std;
+    expectation_object market;
+    expectation_property my_avg;
+    comfort_level 9999;
+    state_property override;
+};
+
+
+
+object triplex_load {
+    name house_ev;
+    phases AS;
+    parent trip_meter1;
+    voltage_1 120+0j;
+    voltage_2 120+0j;
+    voltage_N 0;
+    nominal_voltage 120;
+    object player {
+        name ev_player;
+        property constant_power_1;
+        file "converted0.csv";
+//        object recorder {
+//            name ev_recorder;
+//            interval 600;
+//            property measured_real_power;
+//            file "ev.csv";
+//        };
+    };
+    object triplex_meter {
+        name ev_meter;
+        phases AS;
+        nominal_voltage 120;
+        object recorder {
+            name ev_recorder;
+            file "ev.csv";
+            interval 30;
+//            interval 600;
+            property measured_power;
+        };
+    };
+}
+
+///////////////////////////////
+// END
+///////////////////////////////
+

@@ -1,0 +1,529 @@
+//	Copyright (C) 2008 Battelle Memorial Institute
+
+// 4 Node Feeder: Balanced step-down grY-grY
+
+/////////////////////////////////////////////
+// BEGIN
+/////////////////////////////////////////////
+
+clock {
+	timestamp '2020-01-02 0:00:00';
+    stoptime '2020-01-03 0:10:00';
+	timezone PST+8PDT;
+}
+// Schedule
+schedule demand {
+     0-9 0 * * * 0.00;
+     10-19 0 * * * 0.00;
+     20-29 0 * * * 0.00;
+     30-39 0 * * * 0.00;
+     40-49 0 * * * 0.00;
+     50-59 0 * * * 0.00;
+     0-9 1 * * * 0.00;
+     10-19 1 * * * 0.00;
+     20-29 1 * * * 0.00;
+     30-39 1 * * * 0.00;
+     40-49 1 * * * 0.00;
+     50-59 1 * * * 0.00;
+     0-9 2 * * * 0.00;
+     10-19 2 * * * 0.00;
+     20-29 2 * * * 0.00;
+     30-39 2 * * * 0.39;
+     40-49 2 * * * 0.00;
+     50-59 2 * * * 0.01;
+     0-9 3 * * * 0.00;
+     10-19 3 * * * 0.00;
+     20-29 3 * * * 0.00;
+     30-39 3 * * * 0.00;
+     40-49 3 * * * 0.00;
+     50-59 3 * * * 0.32;
+     0-9 4 * * * 0.00;
+     10-19 4 * * * 0.00;
+     20-29 4 * * * 0.00;
+     30-39 4 * * * 0.13;
+     40-49 4 * * * 0.00;
+     50-59 4 * * * 0.09;
+     0-9 5 * * * 0.23;
+     10-19 5 * * * 0.00;
+     20-29 5 * * * 0.00;
+     30-39 5 * * * 0.00;
+     40-49 5 * * * 0.00;
+     50-59 5 * * * 0.48;
+     0-9 6 * * * 0.88;
+     10-19 6 * * * 0.00;
+     20-29 6 * * * 0.00;
+     30-39 6 * * * 0.00;
+     40-49 6 * * * 0.00;
+     50-59 6 * * * 0.00;
+     0-9 7 * * * 0.00;
+     10-19 7 * * * 0.00;
+     20-29 7 * * * 0.00;
+     30-39 7 * * * 0.00;
+     40-49 7 * * * 0.00;
+     50-59 7 * * * 0.00;
+     0-9 8 * * * 0.00;
+     10-19 8 * * * 0.00;
+     20-29 8 * * * 0.00;
+     30-39 8 * * * 0.61;
+     40-49 8 * * * 0.00;
+     50-59 8 * * * 0.00;
+     0-9 9 * * * 0.00;
+     10-19 9 * * * 0.00;
+     20-29 9 * * * 0.00;
+     30-39 9 * * * 0.00;
+     40-49 9 * * * 0.00;
+     50-59 9 * * * 0.00;
+     0-9 10 * * * 0.00;
+     10-19 10 * * * 0.00;
+     20-29 10 * * * 0.00;
+     30-39 10 * * * 0.00;
+     40-49 10 * * * 0.00;
+     50-59 10 * * * 0.00;
+     0-9 11 * * * 0.00;
+     10-19 11 * * * 0.00;
+     20-29 11 * * * 0.00;
+     30-39 11 * * * 0.00;
+     40-49 11 * * * 0.00;
+     50-59 11 * * * 0.00;
+     0-9 12 * * * 0.00;
+     10-19 12 * * * 0.00;
+     20-29 12 * * * 0.00;
+     30-39 12 * * * 0.00;
+     40-49 12 * * * 0.00;
+     50-59 12 * * * 0.00;
+     0-9 13 * * * 0.00;
+     10-19 13 * * * 0.00;
+     20-29 13 * * * 0.00;
+     30-39 13 * * * 0.00;
+     40-49 13 * * * 0.00;
+     50-59 13 * * * 0.41;
+     0-9 14 * * * 0.00;
+     10-19 14 * * * 0.12;
+     20-29 14 * * * 0.00;
+     30-39 14 * * * 0.92;
+     40-49 14 * * * 0.30;
+     50-59 14 * * * 0.00;
+     0-9 15 * * * 0.78;
+     10-19 15 * * * 0.00;
+     20-29 15 * * * 0.00;
+     30-39 15 * * * 0.00;
+     40-49 15 * * * 0.00;
+     50-59 15 * * * 0.00;
+     0-9 16 * * * 0.00;
+     10-19 16 * * * 0.00;
+     20-29 16 * * * 0.00;
+     30-39 16 * * * 0.00;
+     40-49 16 * * * 0.00;
+     50-59 16 * * * 0.25;
+//    50-59 16 * * * 5;
+     0-9 17 * * * 0.00;
+     10-19 17 * * * 0.00;
+     20-29 17 * * * 0.00;
+     30-39 17 * * * 0.00;
+     40-49 17 * * * 0.00;
+     50-59 17 * * * 0.00;
+     0-9 18 * * * 0.00;
+     10-19 18 * * * 0.16;
+     20-29 18 * * * 0.00;
+     30-39 18 * * * 0.00;
+     40-49 18 * * * 0.00;
+     50-59 18 * * * 0.00;
+     0-9 19 * * * 0.00;
+     10-19 19 * * * 0.00;
+     20-29 19 * * * 0.00;
+     30-39 19 * * * 0.00;
+     40-49 19 * * * 0.00;
+     50-59 19 * * * 0.00;
+     0-9 20 * * * 0.00;
+     10-19 20 * * * 0.00;
+     20-29 20 * * * 0.00;
+     30-39 20 * * * 0.00;
+     40-49 20 * * * 0.00;
+     50-59 20 * * * 0.00;
+     0-9 21 * * * 0.00;
+     10-19 21 * * * 0.00;
+     20-29 21 * * * 0.00;
+     30-39 21 * * * 0.00;
+     40-49 21 * * * 0.00;
+     50-59 21 * * * 0.00;
+     0-9 22 * * * 0.00;
+     10-19 22 * * * 0.00;
+     20-29 22 * * * 0.00;
+     30-39 22 * * * 0.00;
+     40-49 22 * * * 0.00;
+     50-59 22 * * * 0.00;
+     0-9 23 * * * 0.00;
+     10-19 23 * * * 0.00;
+     20-29 23 * * * 0.00;
+     30-39 23 * * * 0.00;
+     40-49 23 * * * 0.00;
+     50-59 23 * * * 0.00;
+}
+schedule setpoint {
+     0-9 16 * * * 119;
+     10-19 16 * * * 119;
+     20-29 16 * * * 119;
+     30-39 16 * * * 119;
+     40-49 16 * * * 119;
+     50-59 16 * * * 119;
+     0-9 17 * * * 117;
+     10-19 17 * * * 117;
+     20-29 17 * * * 117;
+     30-39 17 * * * 117;
+     40-49 17 * * * 117;
+     50-59 17 * * * 117;
+     0-9 18 * * * 117;
+     10-19 18 * * * 117;
+     20-29 18 * * * 117;
+     30-39 18 * * * 117;
+     40-49 18 * * * 117;
+     50-59 18 * * * 117;
+     0-9 19 * * * 119;
+     10-19 19 * * * 119;
+     20-29 19 * * * 119;
+     30-39 19 * * * 119;
+     40-49 19 * * * 119;
+     50-59 19 * * * 119;
+     0-9 20 * * * 119;
+     10-19 20 * * * 119;
+     20-29 20 * * * 119;
+     30-39 20 * * * 119;
+     40-49 20 * * * 119;
+     50-59 20 * * * 119;
+     0-9 21 * * * 119;
+     10-19 21 * * * 119;
+     20-29 21 * * * 119;
+     30-39 21 * * * 119;
+     40-49 21 * * * 119;
+     50-59 21 * * * 119;
+     0-9 22 * * * 119;
+     10-19 22 * * * 119;
+     20-29 22 * * * 119;
+     30-39 22 * * * 119;
+     40-49 22 * * * 119;
+     50-59 22 * * * 119;
+     0-9 23 * * * 119;
+     10-19 23 * * * 119;
+     20-29 23 * * * 119;
+     30-39 23 * * * 119;
+     40-49 23 * * * 119;
+     50-59 23 * * * 119;
+     0-9 0 * * * 119;
+     10-19 0 * * * 119;
+     20-29 0 * * * 119;
+     30-39 0 * * * 119;
+     40-49 0 * * * 119;
+     50-59 0 * * * 119;
+     0-9 1 * * * 119;
+     10-19 1 * * * 119;
+     20-29 1 * * * 119;
+     30-39 1 * * * 119;
+     40-49 1 * * * 119;
+     50-59 1 * * * 119;
+     0-9 2 * * * 119;
+     10-19 2 * * * 119;
+     20-29 2 * * * 119;
+     30-39 2 * * * 119;
+     40-49 2 * * * 119;
+     50-59 2 * * * 119;
+     0-9 3 * * * 119;
+     10-19 3 * * * 119;
+     20-29 3 * * * 119;
+     30-39 3 * * * 119;
+     40-49 3 * * * 119;
+     50-59 3 * * * 119;
+     0-9 4 * * * 119;
+     10-19 4 * * * 119;
+     20-29 4 * * * 119;
+     30-39 4 * * * 119;
+     40-49 4 * * * 119;
+     50-59 4 * * * 119;
+     0-9 5 * * * 119;
+     10-19 5 * * * 119;
+     20-29 5 * * * 119;
+     30-39 5 * * * 119;
+     40-49 5 * * * 119;
+     50-59 5 * * * 119;
+     0-9 6 * * * 119;
+     10-19 6 * * * 119;
+     20-29 6 * * * 119;
+     30-39 6 * * * 119;
+     40-49 6 * * * 119;
+     50-59 6 * * * 119;
+     0-9 7 * * * 119;
+     10-19 7 * * * 119;
+     20-29 7 * * * 119;
+     30-39 7 * * * 119;
+     40-49 7 * * * 119;
+     50-59 7 * * * 119;
+     0-9 8 * * * 119;
+     10-19 8 * * * 119;
+     20-29 8 * * * 119;
+     30-39 8 * * * 119;
+     40-49 8 * * * 119;
+     50-59 8 * * * 119;
+     0-9 9 * * * 119;
+     10-19 9 * * * 119;
+     20-29 9 * * * 119;
+     30-39 9 * * * 119;
+     40-49 9 * * * 119;
+     50-59 9 * * * 119;
+     0-9 10 * * * 119;
+     10-19 10 * * * 119;
+     20-29 10 * * * 119;
+     30-39 10 * * * 119;
+     40-49 10 * * * 119;
+     50-59 10 * * * 119;
+     0-9 11 * * * 119;
+     10-19 11 * * * 119;
+     20-29 11 * * * 119;
+     30-39 11 * * * 119;
+     40-49 11 * * * 119;
+     50-59 11 * * * 119;
+     0-9 12 * * * 119;
+     10-19 12 * * * 119;
+     20-29 12 * * * 119;
+     30-39 12 * * * 119;
+     40-49 12 * * * 119;
+     50-59 12 * * * 119;
+     0-9 13 * * * 119;
+     10-19 13 * * * 119;
+     20-29 13 * * * 119;
+     30-39 13 * * * 119;
+     40-49 13 * * * 119;
+     50-59 13 * * * 119;
+     0-9 14 * * * 119;
+     10-19 14 * * * 119;
+     20-29 14 * * * 119;
+     30-39 14 * * * 119;
+     40-49 14 * * * 119;
+     50-59 14 * * * 119;
+     0-9 15 * * * 119;
+     10-19 15 * * * 119;
+     20-29 15 * * * 119;
+     30-39 15 * * * 119;
+     40-49 15 * * * 119;
+     50-59 15 * * * 119; 
+}
+
+module powerflow;
+module residential {
+    implicit_enduses NONE;
+}
+module market;
+module tape;
+
+class auction {
+    double current_price_mean_24h;
+    double current_price_stdev_24h;
+    double my_avg;
+    double my_std;
+}
+
+object overhead_line_conductor:100 {
+	geometric_mean_radius 0.0244;
+	resistance 0.306;
+}
+
+object overhead_line_conductor:101 {
+	geometric_mean_radius 0.00814;
+	resistance 0.592;
+}
+
+object line_spacing:200 {
+	distance_AB 2.5;
+	distance_BC 4.5;
+	distance_AC 7.0;
+	distance_AN 5.656854;
+	distance_BN 4.272002;
+	distance_CN 5.0;
+}
+
+object line_configuration:300 {
+	conductor_A overhead_line_conductor:100;
+	conductor_B overhead_line_conductor:100;
+	conductor_C overhead_line_conductor:100;
+	conductor_N overhead_line_conductor:101;
+	spacing line_spacing:200;
+}
+
+object transformer_configuration:400 {
+	connect_type 1;
+	power_rating 6000;
+	powerA_rating 2000;
+	powerB_rating 2000;
+	powerC_rating 2000;
+	primary_voltage 12470;
+	secondary_voltage 4160;
+	resistance 0.01;
+	reactance 0.06;
+}
+
+object node {
+	name node1;
+	phases "ABCN";
+	voltage_A +7199.558+0.000j;
+	voltage_B -3599.779-6235.000j;
+	voltage_C -3599.779+6235.000j;
+	nominal_voltage 7200;
+}
+
+object overhead_line:12 {
+	phases "ABCN";
+	from node1;
+	to node2;
+	length 2000;
+	configuration line_configuration:300;
+}
+
+object node {
+	name node2;
+	phases "ABCN";
+	voltage_A +7199.558+0.000j;
+	voltage_B -3599.779-6235.000j;
+	voltage_C -3599.779+6235.000j;
+	nominal_voltage 7200;
+}
+
+object transformer:23 {
+	phases "ABCN";
+	from node2;
+	to node3;
+	configuration transformer_configuration:400;
+}
+
+object node {
+	name node3;
+	phases "ABCN";
+	voltage_A +2401.777+0.000j;
+	voltage_B -1200.889-2080.000j;
+	voltage_C -1200.889+2080.000j;
+	nominal_voltage 2400;
+}
+
+object overhead_line:34 {
+	phases "ABCN";
+	from node3;
+    to node4;
+//	to load4;
+	length 2500;
+	configuration line_configuration:300;
+}
+//object switch {
+//    phases "ABCN";
+//    name sw;
+//    from node3;
+//    to node4;
+//    status OPEN;
+//}
+object node {
+	name node4;
+	phases "ABCN";
+	voltage_A +2401.777+0.000j;
+	voltage_B -1200.889-2080.000j;
+	voltage_C -1200.889+2080.000j;
+	nominal_voltage 2400;
+}
+
+
+///////////////////////////////
+// TRIPLEX OBJECTS
+///////////////////////////////
+
+    ///////////////////////////////
+    // CONFIGURATIONS
+    ///////////////////////////////
+
+object triplex_line_conductor {
+    name tp_line_conductor;
+    resistance 0.97;
+    geometric_mean_radius 0.0111;
+};
+
+object triplex_line_configuration {
+    name triplex_line_configuration_1;
+    conductor_1 tp_line_conductor;
+    conductor_2 tp_line_conductor;
+    conductor_N tp_line_conductor;
+    insulation_thickness 0.08;
+    diameter 0.368;
+}
+
+object transformer_configuration {
+    name CS_config;
+    connect_type SINGLE_PHASE_CENTER_TAPPED;
+    install_type POLETOP;
+    powerC_rating 75;
+    primary_voltage 2401;
+    secondary_voltage 120.000;
+    impedance 0.006+0.0136j;
+}
+
+    ///////////////////////////////
+    // Triplex Lines, Nodes, and Transformers
+    ///////////////////////////////
+
+object transformer {
+	name center_tap_1; 
+	phases CS; 
+	from node4; 
+	to trip_node1; 
+	configuration CS_config;
+}
+
+object triplex_node {
+	name trip_node1; 
+	phases CS; 
+	nominal_voltage 120;        
+}
+
+object triplex_line {
+	name trip_line1; 
+	phases CS; 
+	from trip_node1; 
+	to trip_meter1; 
+	length 0; 
+	configuration triplex_line_configuration_1;
+}
+
+object triplex_meter {
+    name trip_meter1;
+    phases CS;
+    nominal_voltage 120;
+    object recorder {
+        name rec;
+        file "house_meter.csv";
+        property measured_real_power,measured_voltage_1,measured_current_1;
+        interval 600;
+    };
+}
+
+object house {
+    name house1;
+    breaker_amps 200;
+    parent trip_meter1;
+    object waterheater {
+        name wh1;
+        location INSIDE;
+        temperature 120;
+        water_demand demand;
+        heat_mode ELECTRIC;
+        heating_element_capacity 4.5 kW;
+        thermostat_deadband 2;
+        inlet_water_temperature 60;
+//        tank_setpoint 119;
+        tank_setpoint setpoint;
+        tank_UA 3.3;
+        tank_volume 50;
+        object recorder {
+            file "wh_shed.csv";
+            interval 600;
+            parent wh1;
+            property height,tank_setpoint,waterheater_model,power.real,constant_power,constant_current,water_demand,temperature,is_waterheater_on;
+        };
+    };
+}
+
+///////////////////////////////
+// END
+///////////////////////////////

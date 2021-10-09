@@ -1325,7 +1325,7 @@ object triplex_load {
 
 object player {
 	name player_A;
-	file "converted0.csv";
+	file "converted0-3.csv";
 };
 
 
