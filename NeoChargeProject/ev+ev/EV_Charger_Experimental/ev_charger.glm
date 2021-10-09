@@ -1,0 +1,236 @@
+//	Copyright (C) 2008 Battelle Memorial Institute
+
+// 4 Node Feeder: Balanced step-down grY-grY
+
+/////////////////////////////////////////////
+// BEGIN
+/////////////////////////////////////////////
+
+clock {
+	timestamp '2020-01-01 0:00:00';
+    stoptime '2020-01-02 0:10:00';
+//    timezone US/OR/Portland;
+}
+module powerflow;
+module residential {
+    implicit_enduses NONE;
+}
+module tape;
+
+
+object overhead_line_conductor:100 {
+	geometric_mean_radius 0.0244;
+	resistance 0.306;
+}
+
+object overhead_line_conductor:101 {
+	geometric_mean_radius 0.00814;
+	resistance 0.592;
+}
+
+object line_spacing:200 {
+	distance_AB 2.5;
+	distance_BC 4.5;
+	distance_AC 7.0;
+	distance_AN 5.656854;
+	distance_BN 4.272002;
+	distance_CN 5.0;
+}
+
+object line_configuration:300 {
+	conductor_A overhead_line_conductor:100;
+	conductor_B overhead_line_conductor:100;
+	conductor_C overhead_line_conductor:100;
+	conductor_N overhead_line_conductor:101;
+	spacing line_spacing:200;
+}
+
+object transformer_configuration:400 {
+	connect_type 1;
+	power_rating 6000;
+	powerA_rating 2000;
+	powerB_rating 2000;
+	powerC_rating 2000;
+	primary_voltage 12470;
+	secondary_voltage 4160;
+	resistance 0.01;
+	reactance 0.06;
+}
+
+object node {
+	name node1;
+	phases "ABCN";
+	voltage_A +7199.558+0.000j;
+	voltage_B -3599.779-6235.000j;
+	voltage_C -3599.779+6235.000j;
+	nominal_voltage 7200;
+}
+
+object overhead_line:12 {
+	phases "ABCN";
+	from node1;
+	to node2;
+	length 2000;
+	configuration line_configuration:300;
+}
+
+object node {
+	name node2;
+	phases "ABCN";
+	voltage_A +7199.558+0.000j;
+	voltage_B -3599.779-6235.000j;
+	voltage_C -3599.779+6235.000j;
+	nominal_voltage 7200;
+}
+
+object transformer:23 {
+	phases "ABCN";
+	from node2;
+	to node3;
+	configuration transformer_configuration:400;
+}
+
+object node {
+	name node3;
+	phases "ABCN";
+	voltage_A +2401.777+0.000j;
+	voltage_B -1200.889-2080.000j;
+	voltage_C -1200.889+2080.000j;
+	nominal_voltage 2400;
+}
+
+object overhead_line:34 {
+	phases "ABCN";
+	from node3;
+    to node4;
+//	to load4;
+	length 2500;
+	configuration line_configuration:300;
+}
+object node {
+	name node4;
+	phases "ABCN";
+	voltage_A +2401.777+0.000j;
+	voltage_B -1200.889-2080.000j;
+	voltage_C -1200.889+2080.000j;
+	nominal_voltage 2400;
+}
+
+
+
+///////////////////////////////
+// TRIPLEX OBJECTS
+///////////////////////////////
+
+    ///////////////////////////////
+    // CONFIGURATIONS
+    ///////////////////////////////
+
+object triplex_line_conductor {
+    name tp_line_conductor;
+    resistance 0.97;
+    geometric_mean_radius 0.0111;
+};
+
+object triplex_line_configuration {
+    name triplex_line_configuration_1;
+    conductor_1 tp_line_conductor;
+    conductor_2 tp_line_conductor;
+    conductor_N tp_line_conductor;
+    insulation_thickness 0.08;
+    diameter 0.368;
+}
+
+object transformer_configuration {
+    name AS_config;
+//    name CS_config;
+    connect_type SINGLE_PHASE_CENTER_TAPPED;
+    install_type POLETOP;
+    powerA_rating 75;
+//    powerC_rating 75;
+    primary_voltage 2401;
+    secondary_voltage 120.000;
+    impedance 0.006+0.0136j;
+}
+
+
+    ///////////////////////////////
+    // Triplex Lines, Nodes, and Transformers
+    ///////////////////////////////
+
+object transformer {
+	name center_tap_1; 
+	phases AS; 
+	from node4; 
+	configuration AS_config;
+	to object triplex_meter {
+		name xfmr_meter;
+		phases AS;
+		object recorder {
+			name rec_xfmr;
+			property measured_real_power;
+			interval 60;
+			file "xfmr_meter.csv";
+		};
+	};
+
+}
+
+object triplex_line {
+	name trip_line_xfmr; 
+	phases AS; 
+	from xfmr_meter; 
+	to trip_node1; 
+	length 0;
+	configuration triplex_line_configuration_1;
+}
+
+
+
+object triplex_node {
+	name trip_node1; 
+	phases AS; 
+	nominal_voltage 120;        
+}
+
+object triplex_line {
+	name trip_line1; 
+	phases AS; 
+	from trip_node1; 
+	to trip_meter1; 
+	length 0;
+	configuration triplex_line_configuration_1;
+}
+
+
+object triplex_meter {
+    name trip_meter1;
+    phases AS;
+    nominal_voltage 120;
+    object recorder {
+        name rec;
+        file "house_meter_cont.csv";
+        property measured_real_power;
+        interval 30;
+    };
+}
+object house {
+    name house1;
+//    breaker_amps 200; // default = 15 Amps which does not work with MEDIUM evcharger object
+    parent trip_meter1;
+    object evcharger {
+        name ev_charger1;
+	demand_profile "new_ev.csv";
+//	demand_profile "evcharger_demand_profile.csv";
+        charger_type LOW; // MEDIUM = 240V and 30A, HIGH = 240V and 70A, LOW = 120V and 15 Amps
+        capacity 50; // kWh
+        charge_at_work FALSE;
+	vehicle_type ELECTRIC;
+	object recorder {
+		name rec1;
+		property charge,capacity; //charge is current battery state of charge, fraction of capacity. 
+		file "ev1.csv";
+		interval 3600;
+        };
+    };
+}

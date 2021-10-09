@@ -1,0 +1,37 @@
+VALIDATION TEST REPORT
+GridLAB-D 4.3.0-18631 (Navajo [b248856a:develop])
+
+TEST CONFIGURATION
+	Date	2021-02-19 21:46:25 -0800
+	User	midrar
+	Host	(NA)
+	Platform	64-bit MACOSX RELEASE
+	Workdir	/Users/midrar/Desktop/PSU/Lab_Work/NeoCharge/NeoChargeProject/WH_4_Node_Feeder/Controlled_WH
+	Arguments	 --redirect all
+	Clean	FALSE
+	Threads	1
+	Options	TSTD|RALL
+	Mailto	(NA)
+
+DIRECTORY SCAN RESULTS
+
+FILE TEST RESULTS
+
+OVERALL RESULTS
+	Directory results
+		Scanned	2
+		Denied	0
+		Tested	0
+		Failed	0
+	File results
+		Tested	0
+		Passed	0
+		Failed	0
+	Unexpected results
+		Successes	0
+		Errors	0
+		Exceptions	0
+	Runtime	0.0 s
+	Result code	0
+
+END TEST REPORT

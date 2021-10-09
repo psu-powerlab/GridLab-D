@@ -1,11 +1,3 @@
-# file...... output.csv
-# date...... Thu Dec 26 03:15:27 2019
-# user...... Midrar
-# host...... (null)
-# target.... triplex_meter 20
-# trigger... (none)
-# interval.. 300
-# limit..... 12
 # timestamp,measured_real_power,measured_power,measured_voltage_1,measured_voltage_2,measured_voltage_N,measured_current_1,measured_current_2,measured_current_N
 2019-12-01 00:00:00 PST,+549.066,+577.455+18.0407d,+120.079-0.0084105d,+120.078-0.00907294d,+0+0d,+1.46893-0.711704j,-3.10341+0.778311j,+1.63448-0.0666071j
 2019-12-01 00:05:00 PST,+549.066,+577.455+18.0407d,+120.079-0.0084105d,+120.078-0.00907294d,+0+0d,+1.46893-0.711704j,-3.10341+0.778311j,+1.63448-0.0666071j

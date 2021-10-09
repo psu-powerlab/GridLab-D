@@ -1,0 +1,60 @@
+\ifglsentryexists{der}{}%
+{%
+\gls@defglossaryentry{der}%
+{%
+name={DER},%
+sort={DER},%
+type={acronym},%
+first={Distributed Energy Resource\glsspace (DER)},%
+firstplural={Distributed Energy Resource\acrpluralsuffix \glsspace (DER\acrpluralsuffix )},%
+text={DER},%
+plural={DER\acrpluralsuffix },%
+description={Distributed Energy Resource},%
+descriptionplural={Distributed Energy Resource\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Distributed Energy Resource},%
+longplural={Distributed Energy Resources},%
+short={DER},%
+shortplural={DERs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ferc}{}%
+{%
+\gls@defglossaryentry{ferc}%
+{%
+name={FERC},%
+sort={FERC},%
+type={acronym},%
+first={Federal Energy Regulatory Commission\glsspace (FERC)},%
+firstplural={Federal Energy Regulatory Commission\acrpluralsuffix \glsspace (FERC\acrpluralsuffix )},%
+text={FERC},%
+plural={FERC\acrpluralsuffix },%
+description={Federal Energy Regulatory Commission},%
+descriptionplural={Federal Energy Regulatory Commission\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Federal Energy Regulatory Commission},%
+longplural={Federal Energy Regulatory Commissions},%
+short={FERC},%
+shortplural={FERCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%

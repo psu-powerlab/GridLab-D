@@ -1,6 +1,6 @@
 // Exercise 4.1.1
 module powerflow {
-     solver_method NR;
+     solver_method FBS;
 };
 module climate;
 module residential {
